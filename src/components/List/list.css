@@ -1,0 +1,28 @@
+.container_section {
+  padding: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+
+  .products {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  & h1 {
+    color: white;
+    text-transform: uppercase;
+  }
+
+  & button {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 10px 25px;
+    cursor: pointer;
+  }
+}

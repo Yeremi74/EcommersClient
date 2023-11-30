@@ -1,0 +1,15 @@
+.products_container {
+  display: flex;
+  position: relative;
+  min-height: 500px;
+  padding-top: 100px;
+
+  .aside_bar {
+    color: white;
+    left: 0;
+    top: 0;
+    height: fit-content;
+    width: 30%;
+    padding: 40px 40px;
+  }
+}

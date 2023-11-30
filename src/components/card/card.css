@@ -1,0 +1,28 @@
+.card {
+  display: block;
+  color: white;
+  background-color: gray;
+  text-decoration: none;
+  position: relative;
+  width: 400px;
+  min-height: 560px;
+
+  .isNew {
+    position: absolute;
+    background-color: white;
+    padding: 5px;
+    color: green;
+    font-weight: bold;
+  }
+
+  & p {
+    font-size: 24px;
+  }
+
+  .price {
+    font-size: 20px;
+  }
+}
+
+.link {
+}

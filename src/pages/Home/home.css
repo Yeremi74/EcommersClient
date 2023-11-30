@@ -1,0 +1,72 @@
+.men > .img {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(https://images.pexels.com/photos/12056633/pexels-photo-12056633.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  width: 100%;
+  height: 100%;
+}
+
+.women > .img {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(https://images.pexels.com/photos/9861658/pexels-photo-9861658.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+}
+
+.main {
+  height: calc(100vh - 100px);
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+    url(https://images.pexels.com/photos/6626999/pexels-photo-6626999.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+
+  & h2 {
+    font-size: 100px;
+  }
+
+  & p {
+    font-size: 36px;
+  }
+}
+
+.gender_container {
+  display: flex;
+  transition: background-size 1s;
+
+  .gender_section {
+    width: 800px;
+    height: 500px;
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 40px;
+    text-transform: uppercase;
+    overflow: hidden;
+
+    & p {
+      z-index: 9;
+    }
+
+    .img {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      position: absolute;
+      transition: transform 0.5s;
+    }
+  }
+  .gender_section:hover .img {
+    /* background-size: 130%; */
+    transform: scale(1.3);
+  }
+}

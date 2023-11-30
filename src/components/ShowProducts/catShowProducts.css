@@ -1,0 +1,11 @@
+.product_card_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.hola {
+  color: white;
+}
