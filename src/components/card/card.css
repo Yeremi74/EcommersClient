@@ -1,11 +1,13 @@
 .card {
-  display: block;
   color: white;
   background-color: gray;
   text-decoration: none;
   position: relative;
   width: 400px;
   min-height: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   .isNew {
     position: absolute;
