@@ -10,7 +10,10 @@
 
   & img {
     height: 500px;
-    object-fit: cover;
+    /* max-height: 500px; */
+    /* width: 10%; */
+    /* object-fit: cover; */
+    object-fit: contain;
   }
 
   .isNew {
