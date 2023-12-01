@@ -9,9 +9,7 @@ const Card = ({ item, type = 'normal' }) => {
         type === 'link' ? (
           <Link to={`/product/${item.id}`} className='card link'>
             {item.attributes.isNew && <div className='isNew'>New Season</div>}
-            <img
-              src={`http://localhost:1337${item.attributes.img.data.attributes.url}`}
-            />
+            <img src={`${item.attributes.img.data.attributes.url}`} />
             <p className='title'>{item.attributes.title}</p>
             <p className='price'>${item.attributes.price}</p>
           </Link>
@@ -19,7 +17,7 @@ const Card = ({ item, type = 'normal' }) => {
           <div className='card'>
             {item.attributes.isNew && <div className='isNew'>New Season</div>}
             <img
-              src={`http://localhost:1337${item.attributes.img.data.attributes.url}`}
+              src={`${item.attributes.img.data.attributes.formats.thumbnail.url}`}
             />
             <p className='title'>{item.attributes.title}</p>
             <p className='price'>${item.attributes.price}</p>
