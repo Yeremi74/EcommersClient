@@ -3,7 +3,7 @@
   background-color: white;
   text-decoration: none;
   position: relative;
-  width: 400px;
+  width: 100%;
   min-height: 560px;
   display: flex;
   flex-direction: column;

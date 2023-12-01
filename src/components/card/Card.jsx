@@ -4,7 +4,7 @@ import './card.css'
 
 const Card = ({ item, type = 'normal' }) => {
   return (
-    <div className=''>
+    <div>
       {item ? (
         type === 'link' ? (
           <Link to={`/product/${item.id}`} className='card link'>

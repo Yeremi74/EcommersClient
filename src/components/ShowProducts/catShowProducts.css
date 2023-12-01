@@ -1,9 +1,10 @@
 .product_card_container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  display: grid;
+  gap: 1rem;
+  grid-auto-rows: min-content;
+  grid-template-columns: repeat(auto-fill, minmax(min(50%, 30rem), 1fr));
   width: 100%;
+  padding: 0 40px;
 }
 
 .hola {
