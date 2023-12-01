@@ -6,7 +6,7 @@ import './products.css'
 const Products = () => {
   const catId = parseInt(useParams().id)
   const sex = useParams().sex
-  const [maxPrice, setMaxPrice] = useState(1000)
+  const [maxPrice, setMaxPrice] = useState(500)
   const [sort, setSort] = useState('desc')
   const [selectedSubCats, setSelectedSubCats] = useState([])
   const [products, setProducts] = useState([])
@@ -60,7 +60,7 @@ const Products = () => {
             <input
               type='range'
               min={0}
-              max={1000}
+              max={500}
               onChange={e => setMaxPrice(e.target.value)}
             />
             <span>{maxPrice}</span>

@@ -4,15 +4,15 @@ import './list.css'
 
 const List = ({ type }) => {
   const [products, setProducts] = useState([])
-  const [loadMore, setLoadMore] = useState(2)
-
+  const [loadMore, setLoadMore] = useState(3)
+  const counter = 3
   const handleLoadMore = () => {
-    if (loadMore == 2) {
+    if (loadMore == counter) {
       setLoadMore(100)
       return
     }
 
-    setLoadMore(2)
+    setLoadMore(counter)
   }
 
   useEffect(() => {

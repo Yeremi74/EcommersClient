@@ -37,9 +37,9 @@ const CatShowProducts = ({ subCats, maxPrice, sort, catId }) => {
         <Card item={item} key={item.id} type='link' />
       ))}
       <div className='hola'>
-        {`https://real-eyes-strapi.onrender.com/api/products?populate=*&[filters][categories][id]=${catId}${subCats
+        {/* {`https://real-eyes-strapi.onrender.com/api/products?populate=*&[filters][categories][id]=${catId}${subCats
           .map(item => `&[filters][sub_categories][id][$eq]=${item}`)
-          .join('')}&[filters][price][$lte]=${maxPrice}&sort=price:${sort}`}
+          .join('')}&[filters][price][$lte]=${maxPrice}&sort=price:${sort}`} */}
       </div>
     </div>
   )

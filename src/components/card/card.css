@@ -1,13 +1,17 @@
 .card {
-  color: white;
-  background-color: gray;
+  color: black;
+  background-color: white;
   text-decoration: none;
   position: relative;
   width: 400px;
   min-height: 560px;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+
+  & img {
+    height: 500px;
+    object-fit: cover;
+  }
 
   .isNew {
     position: absolute;
