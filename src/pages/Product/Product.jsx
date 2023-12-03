@@ -8,6 +8,7 @@ const Product = () => {
   const [selectedImg, setSelectedImg] = useState(0)
   const [quantity, setQuantity] = useState(1)
   const [sizeSelected, setsizeSelected] = useState(-1)
+  const [mainImage, setMainImage] = useState(null)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,6 +19,8 @@ const Product = () => {
         const data = await res.json()
         // let sizes = await data.attributes.sizes.data
         setData(data.data)
+        // setMainImage()
+        setMainImage(data.data.attributes.img.data.attributes.url)
       } catch (err) {
         console.log(err)
       }
@@ -34,20 +37,59 @@ const Product = () => {
     setsizeSelected(i)
   }
 
+  // console.log(data.attributes.img.data.attributes.url)
   // console.log(data.attributes.sizes.data[1].attributes.title)
   return (
     <div className='single_product_container'>
       <div className='images_collection'>
         <div className='column'>
-          <div className='square'></div>
-          <div className='square'></div>
-          <div className='square'></div>
-          <div className='square'></div>
-          <div className='square'></div>
+          {data && (
+            <img
+              src={`${data.attributes.img.data.attributes.url}`}
+              className='square'
+              onClick={() =>
+                setMainImage(data.attributes.img.data.attributes.url)
+              }
+            />
+          )}
+          {data && (
+            <img
+              src={`${data.attributes.img2.data.attributes.url}`}
+              className='square'
+              onClick={() =>
+                setMainImage(data.attributes.img2.data.attributes.url)
+              }
+            />
+          )}
+          {data && (
+            <img
+              src={`${data.attributes.img3.data.attributes.url}`}
+              className='square'
+              onClick={() =>
+                setMainImage(data.attributes.img3.data.attributes.url)
+              }
+            />
+          )}
+          {data && (
+            <img
+              src={`${data.attributes.img4.data.attributes.url}`}
+              className='square'
+              onClick={() =>
+                setMainImage(data.attributes.img4.data.attributes.url)
+              }
+            />
+          )}
+          {data && (
+            <img
+              src={`${data.attributes.img5.data.attributes.url}`}
+              className='square'
+              onClick={() =>
+                setMainImage(data.attributes.img5.data.attributes.url)
+              }
+            />
+          )}
         </div>
-        <div className='principal'>
-          {data && <img src={`${data.attributes.img.data.attributes.url}`} />}
-        </div>
+        <div className='principal'>{data && <img src={mainImage} />}</div>
       </div>
       <div className='info'>
         <h2>{data && data.attributes.title}</h2>

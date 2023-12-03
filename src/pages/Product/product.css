@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 50px;
+  padding: 0 20px;
   padding-top: 50px;
   width: 100%;
   gap: 50px;
@@ -21,9 +21,9 @@
       gap: 10px;
 
       .square {
-        height: 30%;
+        height: 20%;
         width: 70%;
-        background-color: blue;
+        object-fit: cover;
       }
     }
 
@@ -31,6 +31,7 @@
       width: 100%;
       & img {
         width: 100%;
+        width: 400px;
       }
     }
   }
@@ -38,7 +39,7 @@
   .info {
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 80%;
     min-height: 50%;
     justify-content: space-between;
     gap: 30px;
@@ -50,7 +51,7 @@
       font-size: 20px;
     }
     .desc {
-      width: 70%;
+      width: 100%;
     }
     & button {
       padding: 10px 20px;
@@ -90,28 +91,39 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 780px) {
   .single_product_container {
     flex-direction: column;
-    .info {
-      width: 100%;
+
+    .images_collection {
+      .column {
+        .square {
+          height: 30%;
+        }
+      }
+
+      .info {
+        width: 100%;
+      }
     }
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 870px) {
   .single_product_container {
     .images_collection {
       flex-direction: column-reverse;
+      gap: 20px;
 
       .column {
         width: 100%;
         margin: 0 auto;
-        justify-content: center;
+        justify-content: space-between;
         flex-direction: row;
 
         .square {
-          height: 70px;
+          height: 100px;
+          width: auto;
         }
       }
 
@@ -125,6 +137,27 @@
           justify-content: start;
           width: 100%;
           /* height: 70%; */
+        }
+      }
+    }
+  }
+}
+@media (max-width: 600px) {
+  .single_product_container {
+    flex-direction: column;
+
+    .images_collection {
+      .column {
+        width: 70%;
+        .square {
+          width: 17%;
+          object-fit: contain;
+        }
+      }
+
+      .principal {
+        & img {
+          width: 70%;
         }
       }
     }
