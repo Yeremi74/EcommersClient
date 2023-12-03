@@ -3,38 +3,34 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 50px;
+  padding-top: 50px;
   width: 100%;
   gap: 50px;
-  height: 700px;
 
   .images_collection {
-    /* background-color: blue; */
-
-    height: 50%;
-    /* width: 100%; */
+    height: 100%;
     display: flex;
-    /* background-color: green; */
-    /* justify-content: space-evenly; */
+    justify-content: center;
+    flex-direction: row;
 
     .column {
       width: 250px;
-      height: 100%;
       display: flex;
       flex-direction: column;
       gap: 10px;
 
       .square {
-        height: 20%;
+        height: 30%;
         width: 70%;
         background-color: blue;
       }
     }
 
     .principal {
+      width: 100%;
       & img {
-        /* width: auto; */
-        height: 100%;
-        /* object-fit: cover; */
+        width: 100%;
       }
     }
   }
@@ -42,16 +38,19 @@
   .info {
     display: flex;
     flex-direction: column;
-    width: 400px;
+    width: 60%;
     min-height: 50%;
-    /* background-color: red; */
     justify-content: space-between;
+    gap: 30px;
 
     & h2 {
       font-size: 36px;
     }
     .price {
       font-size: 20px;
+    }
+    .desc {
+      width: 70%;
     }
     & button {
       padding: 10px 20px;
@@ -60,19 +59,15 @@
       cursor: pointer;
       text-transform: uppercase;
     }
-    .desc {
-    }
 
     .sizes {
       display: flex;
       flex-direction: column;
-      /* position: relative; */
 
       .number {
         position: relative;
 
         & span {
-          /* background-color: red; */
           padding: 5px;
         }
       }
@@ -90,6 +85,47 @@
         display: flex;
         gap: 10px;
         cursor: pointer;
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .single_product_container {
+    flex-direction: column;
+    .info {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .single_product_container {
+    .images_collection {
+      flex-direction: column-reverse;
+
+      .column {
+        width: 100%;
+        margin: 0 auto;
+        justify-content: center;
+        flex-direction: row;
+
+        .square {
+          height: 70px;
+        }
+      }
+
+      .principal {
+        /* height: 50%; */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        & img {
+          object-fit: contain;
+          justify-content: start;
+          width: 100%;
+          /* height: 70%; */
+        }
       }
     }
   }

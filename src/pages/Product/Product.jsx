@@ -28,7 +28,7 @@ const Product = () => {
 
   const handleSize = i => {
     if (sizeSelected === i) {
-      return setsizeSelected(null)
+      // return setsizeSelected(null)
     }
 
     setsizeSelected(i)

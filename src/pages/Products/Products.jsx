@@ -105,7 +105,7 @@ const Products = () => {
               <span>0</span>
               <input
                 type='range'
-                min={0}
+                min={10}
                 max={500}
                 onChange={e => setMaxPrice(e.target.value)}
               />
