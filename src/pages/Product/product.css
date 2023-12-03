@@ -7,6 +7,7 @@
   padding-top: 50px;
   width: 100%;
   gap: 50px;
+  margin-bottom: 100px;
 
   .images_collection {
     height: 100%;
@@ -64,6 +65,7 @@
     .sizes {
       display: flex;
       flex-direction: column;
+      gap: 15px;
 
       .number {
         position: relative;
@@ -84,7 +86,7 @@
 
       .size {
         display: flex;
-        gap: 10px;
+        gap: 20px;
         cursor: pointer;
       }
     }

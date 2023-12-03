@@ -19,18 +19,70 @@
         color: black;
       }
     }
-    .links {
-      display: flex;
-      gap: 70px;
 
-      & a {
-        text-decoration: none;
-        color: black;
+    .search {
+      background-color: white;
+      border: 1px solid gray;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 30px;
+      /* padding: 0 10px; */
+      border-radius: 20px;
+      overflow: hidden;
+      min-width: 400px;
+
+      & input {
+        border: none;
+        width: 100%;
+        height: 100%;
+        outline: none;
+      }
+
+      & svg {
+        cursor: pointer;
+        background-color: rgb(72, 72, 72);
+        width: 50px;
+        height: 100%;
+        color: white;
       }
     }
 
     .icons {
       font-size: 30px;
+    }
+  }
+
+  .mobile_bar {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    .bar {
+      display: none;
+    }
+
+    .mobile_bar {
+      background-color: white;
+      height: 50px;
+      width: 100vw;
+      position: fixed;
+      border-radius: 10px 10px 0 0;
+      z-index: 99;
+      bottom: 0;
+      right: 0;
+      box-shadow: 0px 5px 30px gray;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+
+      & a {
+        color: black;
+        text-decoration: none;
+        z-index: 99;
+      }
     }
   }
 }
