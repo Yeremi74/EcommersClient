@@ -3,18 +3,20 @@ import Card from '../card/Card'
 import './catShowProducts.css'
 const CatShowProducts = ({ subCats, maxPrice, sort, catId }) => {
   const [products, setProducts] = useState([])
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        let load = await setLoading(true)
         const res = await fetch(
           `https://real-eyes-strapi.onrender.com/api/products?populate=*&[filters][categories][id]=${catId}${subCats
             .map(item => `&[filters][sub_categories][id][$eq]=${item}`)
             .join('')}&[filters][price][$lte]=${maxPrice}&sort=price:${sort}`
         )
-        {
-          /* si hay muchos productos, haciendo este metodo hara que sea lento traer los productos, asi que el filtrado de precios es mejos que se haga el fetch con un boton */
-        }
+
+        load = await setLoading(false)
+
         const data = await res.json()
 
         setProducts(data.data)
@@ -25,22 +27,29 @@ const CatShowProducts = ({ subCats, maxPrice, sort, catId }) => {
 
     fetchData()
   }, [subCats, sort, maxPrice])
-  console.log(subCats)
-  console.log(
-    `https://real-eyes-strapi.onrender.com/api/products?populate=*&[filters][categories][id]=${catId}${subCats.map(
-      item => `&[filters][sub_categories][id][$eq]=${item}`
-    )}&[filters][price][$lte]=${maxPrice}&sort=price:${sort}`
-  )
+
   return (
-    <div className='product_card_container'>
-      {products.map(item => (
-        <Card item={item} key={item.id} type='link' />
-      ))}
-      <div className='hola'>
-        {/* {`https://real-eyes-strapi.onrender.com/api/products?populate=*&[filters][categories][id]=${catId}${subCats
-          .map(item => `&[filters][sub_categories][id][$eq]=${item}`)
-          .join('')}&[filters][price][$lte]=${maxPrice}&sort=price:${sort}`} */}
-      </div>
+    <div className='container'>
+      {loading ? (
+        <div className='loader'>
+          <div className='sk-chase'>
+            <div className='sk-chase-dot'></div>
+            <div className='sk-chase-dot'></div>
+            <div className='sk-chase-dot'></div>
+            <div className='sk-chase-dot'></div>
+            <div className='sk-chase-dot'></div>
+            <div className='sk-chase-dot'></div>
+          </div>
+        </div>
+      ) : products.length == 0 ? (
+        <div>NO HAY RESULTADOS, INTENTA CAMBIAR LOS FILTROS</div>
+      ) : (
+        <div className='product_card_container'>
+          {products.map(item => (
+            <Card item={item} key={item.id} type='link' />
+          ))}
+        </div>
+      )}
     </div>
   )
 }
