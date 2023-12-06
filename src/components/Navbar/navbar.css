@@ -52,14 +52,14 @@
           padding-left: 10px;
         }
 
-        & a {
+        .btn_search {
           display: flex;
           justify-content: center;
           align-items: center;
           cursor: pointer;
           background-color: rgb(72, 72, 72);
-          width: 50px;
-          height: 100%;
+          width: 35px;
+          height: 35px;
           color: white;
         }
       }
@@ -106,7 +106,7 @@
         padding-left: 10px;
       }
 
-      & .btn_search {
+      .btn_search {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -114,7 +114,6 @@
         background-color: rgb(72, 72, 72);
         width: 35px;
         height: 35px;
-
         color: white;
       }
     }
