@@ -166,4 +166,8 @@
       }
     }
   }
+
+  .result_container {
+    display: block !important;
+  }
 }
