@@ -33,7 +33,7 @@
   }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 640px) {
   .product_card_container {
     grid-template-columns: repeat(2, 1fr);
   }

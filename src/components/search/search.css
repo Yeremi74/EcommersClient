@@ -1,0 +1,23 @@
+.containerSearchSearch {
+  position: absolute;
+  background-color: white;
+  width: 150%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 99;
+}
+.result_buscador {
+  height: 100px;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  text-decoration: none;
+  color: black;
+
+  & img {
+    height: 100%;
+    width: 100px;
+    object-fit: contain;
+  }
+}

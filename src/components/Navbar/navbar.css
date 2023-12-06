@@ -3,7 +3,7 @@
   width: 100%;
   font-size: 24px;
   font-weight: bold;
-  overflow: hidden;
+  /* overflow: hidden; */
 
   .bar {
     display: flex;
@@ -11,6 +11,7 @@
     align-items: center;
     padding: 0 50px;
     height: 100px;
+    /* overflow: hidden; */
     background-color: white;
 
     .logo {
@@ -19,6 +20,70 @@
         color: black;
       }
     }
+
+    .search_container {
+      display: flex;
+      flex-direction: column;
+
+      .result_container {
+        .results {
+          position: relative;
+
+          bottom: 0;
+        }
+      }
+      .search {
+        background-color: white;
+        border: 1px solid gray;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 30px;
+        /* padding: 0 10px; */
+        border-radius: 20px;
+        overflow: hidden;
+        min-width: 400px;
+
+        & input {
+          border: none;
+          width: 100%;
+          height: 100%;
+          outline: none;
+          padding-left: 10px;
+        }
+
+        & a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          background-color: rgb(72, 72, 72);
+          width: 50px;
+          height: 100%;
+          color: white;
+        }
+      }
+    }
+
+    .icons {
+      font-size: 30px;
+    }
+  }
+
+  .mobile_bar {
+    display: none;
+    z-index: 11;
+  }
+  .mobile_search {
+    background-color: white;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    top: 0px;
+    z-index: 10;
+    display: none;
+    padding: 30px;
 
     .search {
       background-color: white;
@@ -31,15 +96,20 @@
       border-radius: 20px;
       overflow: hidden;
       min-width: 400px;
+      margin-bottom: 50px;
 
       & input {
         border: none;
         width: 100%;
         height: 100%;
         outline: none;
+        padding-left: 10px;
       }
 
-      & svg {
+      & a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         cursor: pointer;
         background-color: rgb(72, 72, 72);
         width: 50px;
@@ -48,13 +118,22 @@
       }
     }
 
-    .icons {
-      font-size: 30px;
+    .containerSearchSearch {
+      overflow-y: scroll;
+      /* background-color: red; */
+      height: 100vh;
+      width: 80%;
+      padding-bottom: 50px;
+      padding-top: 30px;
+
+      & a {
+        box-shadow: 0px 0px 20px gray;
+      }
     }
   }
 
-  .mobile_bar {
-    display: none;
+  .mobile__search__true {
+    display: block;
   }
 }
 
@@ -78,10 +157,12 @@
       justify-content: space-evenly;
       align-items: center;
 
-      & a {
+      & a,
+      & svg {
         color: black;
         text-decoration: none;
         z-index: 99;
+        cursor: pointer;
       }
     }
   }

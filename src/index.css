@@ -7,4 +7,9 @@
 
 body {
   background-color: #010100;
+
+  .app_hide {
+    height: 100vh;
+    overflow: hidden;
+  }
 }

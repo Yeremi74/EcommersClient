@@ -27,7 +27,7 @@ const Product = () => {
     }
 
     fetchData()
-  }, [])
+  }, [id])
 
   const handleSize = i => {
     if (sizeSelected === i) {
@@ -45,46 +45,46 @@ const Product = () => {
         <div className='column'>
           {data && (
             <img
-              src={`${data.attributes.img.data.attributes.url}`}
+              src={`${data?.attributes?.img?.data?.attributes?.url}`}
               className='square'
               onClick={() =>
-                setMainImage(data.attributes.img.data.attributes.url)
+                setMainImage(data?.attributes?.img?.data?.attributes?.url)
               }
             />
           )}
           {data && (
             <img
-              src={`${data.attributes.img2.data.attributes.url}`}
+              src={`${data?.attributes?.img2?.data?.attributes?.url}`}
               className='square'
               onClick={() =>
-                setMainImage(data.attributes.img2.data.attributes.url)
+                setMainImage(data?.attributes?.img2?.data?.attributes?.url)
               }
             />
           )}
           {data && (
             <img
-              src={`${data.attributes.img3.data.attributes.url}`}
+              src={`${data?.attributes?.img3?.data?.attributes?.url}`}
               className='square'
               onClick={() =>
-                setMainImage(data.attributes.img3.data.attributes.url)
+                setMainImage(data?.attributes?.img3?.data?.attributes?.url)
               }
             />
           )}
           {data && (
             <img
-              src={`${data.attributes.img4.data.attributes.url}`}
+              src={`${data?.attributes?.img4?.data?.attributes?.url}`}
               className='square'
               onClick={() =>
-                setMainImage(data.attributes.img4.data.attributes.url)
+                setMainImage(data?.attributes?.img4?.data?.attributes?.url)
               }
             />
           )}
           {data && (
             <img
-              src={`${data.attributes.img5.data.attributes.url}`}
+              src={`${data?.attributes?.img5?.data?.attributes?.url}`}
               className='square'
               onClick={() =>
-                setMainImage(data.attributes.img5.data.attributes.url)
+                setMainImage(data?.attributes?.img5?.data?.attributes?.url)
               }
             />
           )}
@@ -92,17 +92,17 @@ const Product = () => {
         <div className='principal'>{data && <img src={mainImage} />}</div>
       </div>
       <div className='info'>
-        <h2>{data && data.attributes.title}</h2>
-        <p className='price'>${data && data.attributes.price}</p>
+        <h2>{data && data?.attributes?.title}</h2>
+        <p className='price'>${data && data?.attributes?.price}</p>
 
         <button>Añadir al carrito</button>
 
-        <p className='desc'>{data && data.attributes.desc}</p>
+        <p className='desc'>{data && data?.attributes?.desc}</p>
         <div className='sizes'>
           <span>TALLAS:</span>
           <div className='size'>
             {data &&
-              data.attributes.sizes.data.map((size, i) => (
+              data?.attributes?.sizes?.data.map((size, i) => (
                 <div
                   key={size.attributes.title}
                   onClick={() => handleSize(i)}
