@@ -33,6 +33,15 @@ const Navbar = ({ hide, setHide }) => {
     setMobileSearch(true)
   }
 
+  const handleKeyDownBtn = () => {
+    if (searchValue) {
+      console.log('navegando')
+      navigate(`/showAllProduct/${searchValue}`)
+      // inputRef.current.blur()
+      setMobileSearch(false)
+    }
+  }
+
   const handleKeyDown = e => {
     if (e.key === 'Enter') {
       if (!searchValue) {
@@ -62,9 +71,9 @@ const Navbar = ({ hide, setHide }) => {
               onBlur={() => setIsFocused(false)}
               onKeyDown={handleKeyDown}
             />
-            <Link to={`/showAllProduct/${searchValue}`}>
-              <CiSearch />
-            </Link>
+            <div onClick={handleKeyDownBtn} className='btn_search'>
+              <CiSearch onFocus={() => setIsFocused(true)} />
+            </div>
           </div>
           <div
             className='result_container'
@@ -106,9 +115,9 @@ const Navbar = ({ hide, setHide }) => {
               onBlur={() => setIsFocused(false)}
               onKeyDown={handleKeyDown}
             />
-            <Link to={`/showAllProduct/${searchValue}`}>
-              <CiSearch />
-            </Link>
+            <div className='btn_search' onClick={handleKeyDownBtn}>
+              <CiSearch onBlur={() => setIsFocused(false)} />
+            </div>
           </div>
           <div
             className='result_container'
