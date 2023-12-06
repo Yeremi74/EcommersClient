@@ -25,7 +25,7 @@ const Search = ({ busqueda, max, setIsFocused, isFocused }) => {
       ) : data ? (
         data.slice(0, max).map(item => (
           <Link
-            to={`eal-eyes-strapi.onrender.com/product/${item.id}`}
+            to={`https://real-eyes-strapi.onrender.com/product/${item.id}`}
             className='result_buscador'
             onClick={handleSearchOther}
             key={item.id}
