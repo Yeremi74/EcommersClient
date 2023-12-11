@@ -153,10 +153,20 @@ const Navbar = ({ hide, setHide }) => {
       <div className='mobile_bar'>
         <Link to={'/'}>
           <IoIosHome onClick={handleSearchOther} />
+          <span>Inicio</span>
         </Link>
-        <CiSearch onClick={handleSearch} />
-        <IoPersonOutline onClick={handleSearchOther} />
-        <CiShoppingBasket onClick={handleSearchOther} />
+        <span>
+          <CiSearch onClick={handleSearch} />
+          <span>Buscar</span>
+        </span>
+        <span>
+          <IoPersonOutline onClick={handleSearchOther} />
+          <span>Perfil</span>
+        </span>
+        <span>
+          <CiShoppingBasket onClick={handleSearchOther} />
+          <span>Carrito</span>
+        </span>
       </div>
     </div>
   )
