@@ -34,22 +34,33 @@ const Navbar = ({ hide, setHide }) => {
   }
 
   const handleKeyDownBtn = () => {
-    if (searchValue) {
+    if (searchValue === '') {
+      navigate(`/catalogo/*`)
       console.log('navegando')
-      navigate(`/showAllProduct/${searchValue}`)
-      // inputRef.current.blur()
+      setHide(false)
       setMobileSearch(false)
+      return
     }
+    navigate(`/catalogo/${searchValue}`)
+    // inputRef.current.blur()
+    setHide(false)
+    setMobileSearch(false)
   }
 
   const handleKeyDown = e => {
     if (e.key === 'Enter') {
-      if (!searchValue) {
+      if (searchValue === '') {
+        navigate(`/catalogo/*`)
+        console.log('navegando')
+        setMobileSearch(false)
+        inputRef.current.blur()
+        setHide(false)
         return
       }
-      navigate(`/showAllProduct/${searchValue}`)
+      navigate(`/catalogo/${searchValue}`)
       inputRef.current.blur()
       setMobileSearch(false)
+      setHide(false)
     }
   }
   return (
@@ -84,9 +95,10 @@ const Navbar = ({ hide, setHide }) => {
             <div className='results'>
               <Search
                 busqueda={searchValue}
-                max={5}
+                max={15}
                 setIsFocused={setIsFocused}
                 isFocused={isFocused}
+                mobile={true}
               />
               {/* {searchValue} */}
             </div>
@@ -128,9 +140,10 @@ const Navbar = ({ hide, setHide }) => {
             <div className='results'>
               <Search
                 busqueda={searchValue}
-                max={10}
+                max={20}
                 setIsFocused={setIsFocused}
                 isFocused={isFocused}
+                mobile={false}
               />
               {/* {searchValue} */}
             </div>

@@ -1,17 +1,24 @@
 .containerSearchSearch {
   position: absolute;
-  background-color: white;
+  background-color: black;
+  overflow-y: s;
   width: 150%;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  justify-content: left;
   gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
   z-index: 99;
 }
 .result_buscador {
-  height: 100px;
-  width: 90%;
+  height: 250px;
+  /* width: 40%; */
   margin: 0 auto;
   display: flex;
+  max-width: 33%;
+  flex: 1;
+  flex-direction: column;
   text-decoration: none;
   color: black;
 
@@ -20,4 +27,28 @@
     width: 100px;
     object-fit: contain;
   }
+}
+.hide {
+  display: none !important;
+}
+.span {
+  color: white;
+}
+.container_desk {
+  display: grid;
+  gap: 1rem;
+  /* grid-auto-flow: column; */
+  /* grid-auto-rows: 32rem; */
+  grid-auto-columns: 5rem;
+  grid-template-columns: 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  height: 70vh;
+  overflow-y: scroll;
+}
+
+.loading_data {
+  grid-template-columns: repeat(1, 1fr);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
