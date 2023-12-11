@@ -32,84 +32,20 @@
     flex-direction: column;
     justify-content: center;
   }
-  .aside_bar {
-    color: black;
-    background-color: white;
-    z-index: 3;
-    position: absolute;
-    transform: translateX(1000px);
-    right: 0px;
-    bottom: 0;
-    height: 100%;
-    width: 25%;
-    padding: 40px 40px;
-    transition: all 0.5s;
-
-    .filterItem {
-      margin-bottom: 10px;
-      width: 70%;
-
-      .typeoff {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        padding-right: 5px;
-      }
-
-      .titleCat {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        padding-right: 40px;
-        align-items: center;
-        cursor: pointer;
-
-        & svg {
-          rotate: 0deg;
-          transition: all 0.5s;
-        }
-      }
-
-      .titleCat.show {
-        & svg {
-          rotate: 180deg;
-        }
-      }
-
-      &::after {
-        content: '';
-        height: 2px;
-        position: absolute;
-        width: 56%;
-        background-color: black;
-      }
-    }
-
-    .content {
-      color: black;
-      max-height: 0;
-      overflow: hidden;
-      transition: all 0.5s cubic-bezier(0, 1, 0, 1);
-    }
-
-    .content.show {
-      height: auto;
-      max-height: 9999px;
-      transition: all 0.5s cubic-bezier(1, 0, 1, 0);
-    }
-  }
 
   .bg {
     width: 100vw;
     height: 100vh;
     opacity: 0;
     display: none;
-    position: absolute;
-    z-index: 2;
+    position: fixed;
+    top: 0;
+    z-index: 3;
   }
 
   .bg_active {
-    background-color: rgba(0, 0, 0, 0.597);
+    background-color: rgba(0, 0, 0, 0.386);
+
     display: block;
     opacity: 1;
   }
@@ -119,22 +55,6 @@
   }
 }
 .container_active {
-  height: 100vh;
-  overflow: hidden;
-}
-
-@media (max-width: 1100px) {
-  .products_container {
-    .aside_bar {
-      width: 50%;
-    }
-  }
-}
-
-@media (max-width: 620px) {
-  .products_container {
-    .aside_bar {
-      width: 70%;
-    }
-  }
+  /* height: 100vh;
+  overflow: hidden; */
 }

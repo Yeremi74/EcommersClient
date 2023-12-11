@@ -1,0 +1,131 @@
+.aside_bar {
+  color: black;
+  background-color: white;
+  z-index: 3;
+  position: fixed;
+  transform: translateX(1000px);
+  right: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  bottom: 0;
+  height: 100%;
+  width: 25%;
+  padding: 40px 40px;
+  transition: all 0.5s;
+
+  .filterItem {
+    margin-bottom: 10px;
+    width: 70%;
+    position: relative;
+
+    .typeoff {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding-right: 5px;
+      align-items: center;
+
+      & label {
+        font-size: 20px;
+      }
+
+      & input {
+        height: 20px;
+        width: 20px;
+      }
+    }
+
+    .titleCat {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      gap: 10px;
+      margin-bottom: 10px;
+      /* padding-right: 40px; */
+      align-items: center;
+      cursor: pointer;
+
+      & span {
+        font-size: 20px;
+      }
+
+      & svg {
+        rotate: 0deg;
+        transition: all 0.5s;
+        font-size: 20px;
+      }
+    }
+
+    .titleCat.show {
+      & svg {
+        rotate: 180deg;
+      }
+    }
+
+    &::after {
+      content: '';
+      height: 3px;
+      position: absolute;
+      bottom: -10px;
+      width: 100%;
+      background-color: black;
+    }
+  }
+
+  .content {
+    color: black;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .content.show {
+    height: auto;
+    max-height: 9999px;
+    transition: all 0.5s cubic-bezier(1, 0, 1, 0);
+  }
+
+  .inputFilter div {
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    & input {
+      height: 20px;
+      width: 20px;
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .products_container {
+    .aside_bar {
+      width: 40%;
+    }
+  }
+}
+
+@media (max-width: 620px) {
+  .products_container {
+    .aside_bar {
+      width: 75%;
+
+      .filterItem {
+        width: 100%;
+
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+
+    .inputFilter div {
+      font-size: 20px;
+    }
+  }
+}

@@ -4,10 +4,11 @@ import { useParams } from 'react-router-dom'
 
 const ShowProduct = () => {
   const producto = useParams().product
+  const url = `https://real-eyes-strapi.onrender.com/api/sub-categories`
   console.log(producto)
   return (
     <div>
-      <AllProducts urlShowProduct={'all'} producto={producto} />
+      <AllProducts urlShowProduct={'all'} producto={producto} url={url} />
     </div>
   )
 }
