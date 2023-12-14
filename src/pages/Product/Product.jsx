@@ -9,6 +9,7 @@ const Product = () => {
   const [data, setData] = useState()
   const [selectedImg, setSelectedImg] = useState(0)
   let [quantity, setQuantity] = useState(1)
+  let [sizedCart, setSizedCart] = useState('')
   const [sizeSelected, setsizeSelected] = useState(-1)
   const [mainImage, setMainImage] = useState(null)
 
@@ -120,7 +121,8 @@ const Product = () => {
                 desc: data.attributes.desc,
                 price: data.attributes.price,
                 img: data.attributes.img.data.attributes.url,
-                quantity
+                quantity,
+                sizedCart
               })
             )
           }
@@ -136,7 +138,10 @@ const Product = () => {
               data?.attributes?.sizes?.data.map((size, i) => (
                 <div
                   key={size.attributes.title}
-                  onClick={() => handleSize(i)}
+                  onClick={() => {
+                    handleSize(i)
+                    setSizedCart(size.attributes.title)
+                  }}
                   className={`${sizeSelected == i ? 'size_active' : ''} number`}
                 >
                   <span>{size.attributes.title}</span>

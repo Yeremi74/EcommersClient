@@ -9,7 +9,7 @@ import {
 import { FaRegTrashAlt } from 'react-icons/fa'
 import './cart.css'
 
-const Cart = ({ cartActive }) => {
+const Cart = ({ cartActive, mobile }) => {
   const dispatch = useDispatch()
   const products = useSelector(state => state.cart.products)
 
@@ -22,7 +22,7 @@ const Cart = ({ cartActive }) => {
   return (
     <>
       <div className={`cart ${cartActive ? 'show_aside_cart' : ''}`}>
-        <h3>Products in your cart</h3>
+        <h3>Carrito</h3>
         <div className='item_container'>
           {products?.map(item => (
             <div className='item' key={item.id}>
@@ -34,6 +34,7 @@ const Cart = ({ cartActive }) => {
                     {/* {item.quantity} x ${item.price} ={' '} */}
                     SUB TOTAL = ${item.quantity * item.price}
                   </div>
+                  <span>Talla: {item.sizedCart}</span>
                 </div>
                 <div className='btnCart'>
                   <button

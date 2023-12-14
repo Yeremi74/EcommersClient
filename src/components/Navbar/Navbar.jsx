@@ -194,7 +194,8 @@ const Navbar = ({ hide, setHide }) => {
           <span>Carrito</span>
         </span>
       </div>
-      {cartActive && <Cart cartActive={cartActive} />}
+      {/* {cartActive && <Cart cartActive={cartActive} />} */}
+      <Cart cartActive={cartActive} />
     </div>
   )
 }
