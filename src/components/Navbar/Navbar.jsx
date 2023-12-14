@@ -84,11 +84,7 @@ const Navbar = ({ hide, setHide }) => {
     <div className='container'>
       <div className='bar'>
         <div className='logo'>
-          {/* <Link to='/'>ZARA</Link> */}
-          <span onClick={handleActiveCart}>
-            <CiShoppingBasket />
-            <span>Carrito</span>
-          </span>
+          <Link to='/'>ZARA</Link>
         </div>
         <div className='search_container'>
           <div className='search'>
