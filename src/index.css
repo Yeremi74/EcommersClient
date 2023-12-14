@@ -4,12 +4,15 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
-
+html {
+  width: 100vw;
+  overflow-x: hidden;
+}
 body {
   background-color: #010100;
-
+  overflow: hidden;
   .app_hide {
     height: 100vh;
-    overflow: hidden;
+    overflow-y: hidden;
   }
 }

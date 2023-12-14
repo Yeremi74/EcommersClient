@@ -11,7 +11,7 @@
     align-items: center;
     padding: 0 50px;
     height: 100px;
-    /* overflow: hidden; */
+    width: 100%;
     background-color: white;
 
     .logo {
@@ -42,7 +42,7 @@
         /* padding: 0 10px; */
         border-radius: 20px;
         overflow: hidden;
-        min-width: 400px;
+        width: 400px;
 
         & input {
           border: none;
@@ -67,6 +67,40 @@
 
     .icons {
       font-size: 30px;
+      display: flex;
+      gap: 5px;
+      cursor: pointer;
+
+      .bg_cart_active {
+        width: 100vw;
+        height: 100vh;
+        opacity: 1;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 9;
+        background-color: rgba(0, 0, 0, 0.386);
+      }
+    }
+    .cartIcon {
+      display: flex;
+      position: relative;
+
+      .quantity_bg {
+        position: absolute;
+        right: -3px;
+        top: -3px;
+        font-size: 15px;
+        background-color: black;
+        width: 20px;
+        height: 20px;
+        color: white;
+        display: flex;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+      }
     }
   }
 
@@ -81,7 +115,7 @@
     height: 100vh;
     overflow: hidden;
     top: 0px;
-    z-index: 10;
+    z-index: 12;
     display: none;
     /* padding: 15px; */
 
@@ -161,7 +195,7 @@
       border-radius: 10px 10px 0 0;
       z-index: 99;
       bottom: 0;
-      right: 0;
+      left: 0;
       box-shadow: 0px 5px 30px gray;
       display: flex;
       justify-content: space-evenly;

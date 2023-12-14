@@ -6,14 +6,19 @@ import { IoIosHome } from 'react-icons/io'
 import './navbar.css'
 import Search from '../search/Search'
 import UseFetch from '../../hooks/busqueda'
+import { useSelector } from 'react-redux'
+import Cart from '../Cart/Cart'
 
 const Navbar = ({ hide, setHide }) => {
   const [searchValue, setSearchValue] = useState('')
   const [isFocused, setIsFocused] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
   const [mobileSearch, setMobileSearch] = useState(false)
+  const [cartActive, setCartActive] = useState(false)
   const navigate = useNavigate()
   const inputRef = useRef()
+
+  const products = useSelector(state => state.cart.products)
 
   const handleSearchOther = () => {
     if (mobileSearch) {
@@ -63,11 +68,26 @@ const Navbar = ({ hide, setHide }) => {
       setHide(false)
     }
   }
+
+  const handleActiveCart = () => {
+    if (cartActive) {
+      setCartActive(false)
+      setHide(false)
+      return
+    }
+    setCartActive(true)
+    setHide(true)
+  }
+
   return (
     <div className='container'>
       <div className='bar'>
         <div className='logo'>
-          <Link to='/'>ZARA</Link>
+          {/* <Link to='/'>ZARA</Link> */}
+          <span onClick={handleActiveCart}>
+            <CiShoppingBasket />
+            <span>Carrito</span>
+          </span>
         </div>
         <div className='search_container'>
           <div className='search'>
@@ -106,9 +126,17 @@ const Navbar = ({ hide, setHide }) => {
         </div>
         <div className='icons'>
           <IoPersonOutline />
-          <CiShoppingBasket />
+          {hide && (
+            <div className='bg_cart_active' onClick={handleActiveCart}></div>
+          )}
+          <div className='cartIcon' onClick={handleActiveCart}>
+            <CiShoppingBasket />
+            <p className='quantity_bg'>{products.length}</p>
+            <Cart cartActive={cartActive} />
+          </div>
         </div>
       </div>
+
       <div
         className={
           mobileSearch ? 'mobile__search__true mobile_search' : 'mobile_search'
@@ -163,11 +191,12 @@ const Navbar = ({ hide, setHide }) => {
           <IoPersonOutline onClick={handleSearchOther} />
           <span>Perfil</span>
         </span>
-        <span>
-          <CiShoppingBasket onClick={handleSearchOther} />
+        <span onClick={handleActiveCart}>
+          <CiShoppingBasket />
           <span>Carrito</span>
         </span>
       </div>
+      <Cart cartActive={cartActive} />
     </div>
   )
 }

@@ -63,6 +63,13 @@
       text-transform: uppercase;
     }
 
+    .quantity {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
     .sizes {
       display: flex;
       flex-direction: column;

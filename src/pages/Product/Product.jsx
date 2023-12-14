@@ -2,13 +2,17 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Card from '../../components/card/Card'
 import './product.css'
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../../redux/cartReducer'
 const Product = () => {
   const id = useParams().id
   const [data, setData] = useState()
   const [selectedImg, setSelectedImg] = useState(0)
-  const [quantity, setQuantity] = useState(1)
+  let [quantity, setQuantity] = useState(1)
   const [sizeSelected, setsizeSelected] = useState(-1)
   const [mainImage, setMainImage] = useState(null)
+
+  const dispatch = useDispatch()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,8 +41,10 @@ const Product = () => {
     setsizeSelected(i)
   }
 
-  // console.log(data.attributes.img.data.attributes.url)
-  // console.log(data.attributes.sizes.data[1].attributes.title)
+  const handleQuantityMore = () => {
+    setQuantity(quantity++)
+  }
+  const handleQuantityLess = () => {}
   return (
     <div className='single_product_container'>
       <div className='images_collection'>
@@ -95,7 +101,32 @@ const Product = () => {
         <h2>{data && data?.attributes?.title}</h2>
         <p className='price'>${data && data?.attributes?.price}</p>
 
-        <button>Añadir al carrito</button>
+        <div className='quantity'>
+          <button
+            onClick={() => setQuantity(prev => (prev === 1 ? 1 : prev - 1))}
+          >
+            -
+          </button>
+          <span>{quantity}</span>
+          <button onClick={() => setQuantity(prev => prev + 1)}>+</button>
+        </div>
+
+        <button
+          onClick={() =>
+            dispatch(
+              addToCart({
+                id: data.id,
+                title: data.attributes.title,
+                desc: data.attributes.desc,
+                price: data.attributes.price,
+                img: data.attributes.img.data.attributes.url,
+                quantity
+              })
+            )
+          }
+        >
+          Añadir al carrito
+        </button>
 
         <p className='desc'>{data && data?.attributes?.desc}</p>
         <div className='sizes'>
