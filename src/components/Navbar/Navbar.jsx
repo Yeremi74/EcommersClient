@@ -26,6 +26,7 @@ const Navbar = ({ hide, setHide }) => {
       setHide(false)
       return
     }
+    setCartActive(false)
   }
   const handleSearch = () => {
     if (mobileSearch) {
@@ -33,7 +34,7 @@ const Navbar = ({ hide, setHide }) => {
       setHide(false)
       return
     }
-
+    setCartActive(false)
     setHide(true)
     setMobileSearch(true)
   }

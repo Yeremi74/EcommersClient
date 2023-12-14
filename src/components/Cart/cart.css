@@ -1,5 +1,5 @@
 .cart {
-  position: absolute;
+  position: fixed;
   transform: translateX(3000px);
   height: 100vh;
   transition: all 0.5s;
@@ -11,7 +11,7 @@
   color: black;
   display: flex;
   flex-direction: column;
-  z-index: 10;
+  z-index: 99;
 
   .item_container {
     display: flex;

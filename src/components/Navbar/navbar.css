@@ -193,7 +193,7 @@
       width: 100vw;
       position: fixed;
       border-radius: 10px 10px 0 0;
-      z-index: 99;
+      z-index: 999;
       bottom: 0;
       left: 0;
       box-shadow: 0px 5px 30px gray;
