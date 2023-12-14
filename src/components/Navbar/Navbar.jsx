@@ -26,6 +26,7 @@ const Navbar = ({ hide, setHide }) => {
       setHide(false)
       return
     }
+    setHide(false)
     setCartActive(false)
   }
   const handleSearch = () => {
