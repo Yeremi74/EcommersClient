@@ -191,12 +191,13 @@ const Navbar = ({ hide, setHide }) => {
           <IoPersonOutline onClick={handleSearchOther} />
           <span>Perfil</span>
         </span>
-        <span onClick={handleActiveCart}>
+        <span className='cartIcon' onClick={handleActiveCart}>
           <CiShoppingBasket />
+          <p className='quantity_bg'>{products.length}</p>
           <span>Carrito</span>
         </span>
       </div>
-      <Cart cartActive={cartActive} />
+      {cartActive && <Cart cartActive={cartActive} />}
     </div>
   )
 }
