@@ -94,7 +94,11 @@ const Cart = ({ cartActive, mobile, setCartActive, setHide }) => {
             <span>TOTAL</span>
             <span>${totalPrice()}</span>
           </div>
-          <Link to={'finalizar_pago'} className='checkout'>
+          <Link
+            to={'/finalizar_pago'}
+            className='checkout'
+            onClick={() => setCartActive(false)}
+          >
             FINALIZAR PEDIDO
           </Link>
           <span className='reset' onClick={() => dispatch(resetCart())}>
