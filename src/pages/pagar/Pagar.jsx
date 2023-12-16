@@ -15,9 +15,7 @@ const Pagar = () => {
   const pedidoString = `https://api.whatsapp.com/send?phone=+584243356112&text=Hola Real Eyes!😍, me gustaria *adquirir*🤑 los siguientes productos de su tienda:${products
     ?.map(
       item =>
-        `${item.title} con una cantidad de ${item.quantity} en talla: ${
-          item?.sizedCart
-        }${'     ,'}`
+        `${item.title} con una cantidad de ${item.quantity} en talla: ${item?.sizedCart},`
     )
     .join('')} para un total de ${totalPrice()}`
   return (
