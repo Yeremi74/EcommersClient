@@ -114,7 +114,7 @@ const Product = () => {
                 height: 1800
               }
             }}
-            // hola
+            // chao
           />
         </div>
       </div>
