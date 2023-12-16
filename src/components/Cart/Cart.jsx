@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { IoClose } from 'react-icons/io5'
 import {
   removeItem,
   resetCart,
@@ -24,7 +25,7 @@ const Cart = ({ cartActive, mobile, setCartActive }) => {
       <div className={`cart ${cartActive ? 'show_aside_cart' : ''}`}>
         <h3>Carrito</h3>
         <span className='close' onClick={() => setCartActive(false)}>
-          X
+          <IoClose />
         </span>
         <div className='item_container'>
           {products?.map(item => (
