@@ -1,10 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Card from '../../components/card/Card'
 import './product.css'
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../../redux/cartReducer'
-import { CartContext } from '../../contexts/CartContext'
 const Product = () => {
   const id = useParams().id
   const [data, setData] = useState()
@@ -13,8 +12,6 @@ const Product = () => {
   let [sizedCart, setSizedCart] = useState('')
   const [sizeSelected, setsizeSelected] = useState(-1)
   const [mainImage, setMainImage] = useState(null)
-
-  const { setCartActive } = useContext(CartContext)
 
   const dispatch = useDispatch()
 
@@ -35,10 +32,7 @@ const Product = () => {
     }
 
     fetchData()
-    setCartActive(false)
   }, [id])
-
-  useEffect(() => {}, [])
 
   const handleSize = i => {
     if (sizeSelected === i) {

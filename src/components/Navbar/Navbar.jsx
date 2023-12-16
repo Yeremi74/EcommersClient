@@ -9,27 +9,30 @@ import UseFetch from '../../hooks/busqueda'
 import { useSelector } from 'react-redux'
 import Cart from '../Cart/Cart'
 
-const Navbar = ({
-  hide,
-  setHide,
-  setMobileSearch,
-  mobileSearch,
-  cartActive,
-  setCartActive
-}) => {
+const Navbar = ({ hide, setHide }) => {
   const [searchValue, setSearchValue] = useState('')
   const [isFocused, setIsFocused] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
-
+  const [mobileSearch, setMobileSearch] = useState(false)
+  const [cartActive, setCartActive] = useState(false)
   const navigate = useNavigate()
   const inputRef = useRef()
 
   const products = useSelector(state => state.cart.products)
 
+  // setMobileSearch(false)
+  //   setHide(false)
   useEffect(() => {
-    setMobileSearch(false)
-    setHide(false)
-    setCartActive(false)
+    const handlePopState = event => {
+      setCartActive(false)
+    }
+
+    window.addEventListener('popstate', handlePopState)
+
+    // Limpiar el event listener cuando el componente se desmonte
+    return () => {
+      window.removeEventListener('popstate', handlePopState)
+    }
   }, [])
 
   const handleSearchOther = () => {
