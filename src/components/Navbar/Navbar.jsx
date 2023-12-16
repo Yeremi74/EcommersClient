@@ -1,11 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { CiSearch, CiShoppingBasket } from 'react-icons/ci'
-import { IoPersonOutline } from 'react-icons/io5'
-import { IoIosHome } from 'react-icons/io'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
+import { IoCartOutline, IoCartSharp } from 'react-icons/io5'
+import { IoMdSearch } from 'react-icons/io'
+import { AiOutlineHome, AiFillHome } from 'react-icons/ai'
 import './navbar.css'
 import Search from '../search/Search'
-import UseFetch from '../../hooks/busqueda'
 import { useSelector } from 'react-redux'
 import Cart from '../Cart/Cart'
 
@@ -17,7 +16,7 @@ const Navbar = ({ hide, setHide }) => {
   const [cartActive, setCartActive] = useState(false)
   const navigate = useNavigate()
   const inputRef = useRef()
-
+  const location = useLocation()
   const products = useSelector(state => state.cart.products)
 
   // setMobileSearch(false)
@@ -63,7 +62,6 @@ const Navbar = ({ hide, setHide }) => {
       return
     }
     navigate(`/catalogo/${searchValue}`)
-    // inputRef.current.blur()
     setHide(false)
     setMobileSearch(false)
   }
@@ -87,11 +85,11 @@ const Navbar = ({ hide, setHide }) => {
   const handleActiveCart = () => {
     if (cartActive) {
       setCartActive(false)
+      setMobileSearch(false)
       setHide(false)
       return
     }
     setCartActive(true)
-    // setHide(true)
   }
 
   return (
@@ -114,7 +112,7 @@ const Navbar = ({ hide, setHide }) => {
               onKeyDown={handleKeyDown}
             />
             <div onClick={handleKeyDownBtn} className='btn_search'>
-              <CiSearch onFocus={() => setIsFocused(true)} />
+              <IoMdSearch onFocus={() => setIsFocused(true)} />
             </div>
           </div>
           <div
@@ -138,12 +136,11 @@ const Navbar = ({ hide, setHide }) => {
           </div>
         </div>
         <div className='icons'>
-          <IoPersonOutline />
-          {hide && (
+          {cartActive && (
             <div className='bg_cart_active' onClick={handleActiveCart}></div>
           )}
           <div className='cartIcon' onClick={handleActiveCart}>
-            <CiShoppingBasket />
+            {!cartActive ? <IoCartOutline /> : <IoCartSharp />}
             <p className='quantity_bg'>{products.length}</p>
             <Cart
               cartActive={cartActive}
@@ -173,7 +170,7 @@ const Navbar = ({ hide, setHide }) => {
               onKeyDown={handleKeyDown}
             />
             <div className='btn_search' onClick={handleKeyDownBtn}>
-              <CiSearch onBlur={() => setIsFocused(false)} />
+              <IoMdSearch onBlur={() => setIsFocused(false)} />
             </div>
           </div>
           <div
@@ -198,20 +195,16 @@ const Navbar = ({ hide, setHide }) => {
         </div>
       </div>
       <div className='mobile_bar'>
-        <Link to={'/'}>
-          <IoIosHome onClick={handleSearchOther} />
+        <Link to={'/'} onClick={handleSearchOther}>
+          {location.pathname === '/' ? <AiFillHome /> : <AiOutlineHome />}
           <span>Inicio</span>
         </Link>
-        <span>
-          <CiSearch onClick={handleSearch} />
+        <span onClick={handleSearch}>
+          <IoMdSearch />
           <span>Buscar</span>
         </span>
-        <span>
-          <IoPersonOutline onClick={handleSearchOther} />
-          <span>Perfil</span>
-        </span>
         <span className='cartIcon' onClick={handleActiveCart}>
-          <CiShoppingBasket />
+          {!cartActive ? <IoCartOutline /> : <IoCartSharp />}
           <p className='quantity_bg'>{products.length}</p>
           <span>Carrito</span>
         </span>

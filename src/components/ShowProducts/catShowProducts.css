@@ -1,15 +1,17 @@
 .product_card_container {
   display: grid;
-  gap: 1rem;
+  /* gap: 1rem; */
   /* grid-auto-rows: min-content;
   grid-template-columns: repeat(auto-fill, minmax(min(32%, 15rem), 1fr)); */
   /* grid-auto-flow: column; */
   /* grid-auto-rows: 32rem; */
   grid-auto-columns: 5rem;
   grid-template-columns: 1fr;
-  width: 100%;
-  padding: 0 10px;
-
+  width: 97%;
+  margin: 0 auto;
+  /* padding: 0 10px; */
+  grid-column-gap: 1rem;
+  grid-row-gap: 3rem;
   .loading {
     color: white;
   }

@@ -1,7 +1,7 @@
 .aside_bar {
   color: black;
   background-color: white;
-  z-index: 3;
+  z-index: 10000;
   position: fixed;
   transform: translateX(1000px);
   right: 0px;

@@ -9,6 +9,7 @@ import {
 } from '../../redux/cartReducer'
 import { FaRegTrashAlt } from 'react-icons/fa'
 import './cart.css'
+import { Link } from 'react-router-dom'
 
 const Cart = ({ cartActive, mobile, setCartActive, setHide }) => {
   const dispatch = useDispatch()
@@ -93,7 +94,9 @@ const Cart = ({ cartActive, mobile, setCartActive, setHide }) => {
             <span>TOTAL</span>
             <span>${totalPrice()}</span>
           </div>
-          <button className='checkout'>PROCEED TO CHECKOUT</button>
+          <Link to={'finalizar_pago'} className='checkout'>
+            FINALIZAR PEDIDO
+          </Link>
           <span className='reset' onClick={() => dispatch(resetCart())}>
             Reset Cart
           </span>

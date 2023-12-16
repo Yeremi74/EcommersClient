@@ -1,14 +1,23 @@
-import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom'
+import {
+  Outlet,
+  RouterProvider,
+  createBrowserRouter,
+  useLocation
+} from 'react-router-dom'
 import Home from './pages/Home/Home'
 import Product from './pages/Product/Product'
 import Products from './pages/Products/Products'
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
 import ShowProduct from './pages/ShowProduct/ShowProduct'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import Pagar from './pages/pagar/Pagar'
+
 const Layout = () => {
   const [hide, setHide] = useState(false)
-  console.log(hide)
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [useLocation().pathname])
   return (
     <div className={`${hide ? 'app_hide' : ''} app`}>
       <Navbar hide={hide} setHide={setHide} />
@@ -38,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: '/catalogo/:product',
         element: <ShowProduct />
+      },
+      {
+        path: '/finalizar_pago',
+        element: <Pagar />
       }
     ]
   }

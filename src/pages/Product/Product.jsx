@@ -23,9 +23,7 @@ const Product = () => {
           `https://real-eyes-strapi.onrender.com/api/products/${id}?populate=*`
         )
         const data = await res.json()
-        // let sizes = await data.attributes.sizes.data
         setData(data.data)
-        // setMainImage()
         setMainImage(data.data.attributes.img.data.attributes.url)
       } catch (err) {
         console.log(err)
@@ -37,16 +35,11 @@ const Product = () => {
 
   const handleSize = i => {
     if (sizeSelected === i) {
-      // return setsizeSelected(null)
     }
 
     setsizeSelected(i)
   }
 
-  const handleQuantityMore = () => {
-    setQuantity(quantity++)
-  }
-  const handleQuantityLess = () => {}
   return (
     <div className='single_product_container'>
       <div className='images_collection'>

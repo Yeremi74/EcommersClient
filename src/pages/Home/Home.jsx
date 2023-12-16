@@ -7,19 +7,19 @@ const Home = () => {
   return (
     <div>
       <div className='main'>
-        <h2>New Collection</h2>
-        <p>Explore your style</p>
+        <h2>Nueva Colección</h2>
+        <p>Explora tu estilo</p>
       </div>
-      <List type='top selles' />
+      <List type='top ventas' />
       <div className='sections_container'>
         <div className='gender_container'>
           <Link to='/products/mujeres/1' className='section women'>
             <div className='img'></div>
-            <p>Mujeres</p>
+            <p>Damas</p>
           </Link>
           <Link to='/products/hombres/2' className='section men'>
             <div className='img'></div>
-            <p>Hombres</p>
+            <p>Caballeros</p>
           </Link>
         </div>
         <div className='gender_container'>
@@ -29,7 +29,7 @@ const Home = () => {
           </Link>
         </div>
       </div>
-      <List type='featured' />
+      <List type='destacados' />
     </div>
   )
 }

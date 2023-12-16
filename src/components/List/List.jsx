@@ -39,7 +39,7 @@ const List = ({ type }) => {
           <Card item={item} type='link' key={item.id} />
         ))}
       </div>
-      <button onClick={handleLoadMore}>Load More</button>
+      <button onClick={handleLoadMore}>Ver Más</button>
     </div>
   )
 }
