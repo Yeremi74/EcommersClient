@@ -133,6 +133,7 @@
       gap: 20px;
 
       .column {
+        padding: 0;
         width: auto;
         justify-content: space-between;
         flex-direction: row;
@@ -171,6 +172,7 @@
         /* margin: 0 auto; */
       }
       .column {
+        padding: 0;
         width: 100%;
         /* margin: 0 auto; */
         /* background-color: red; */
@@ -188,7 +190,7 @@
 }
 @media (max-width: 600px) {
   .single_product_container {
-    flex-direction: column;
+    /* flex-direction: column; */
 
     .images_collection {
       .column {
@@ -196,9 +198,7 @@
         padding: 0;
         overflow-x: scroll;
         .square {
-          /* width: 17%; */
-          width: 30%;
-          /* object-fit: contain; */
+          width: 100%;
         }
       }
 
