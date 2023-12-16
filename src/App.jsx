@@ -6,15 +6,26 @@ import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
 import ShowProduct from './pages/ShowProduct/ShowProduct'
 import { useState } from 'react'
+import { CartContext } from './contexts/CartContext'
 const Layout = () => {
   const [hide, setHide] = useState(false)
-  console.log(hide)
+  const [mobileSearch, setMobileSearch] = useState(false)
+  const [cartActive, setCartActive] = useState(false)
   return (
-    <div className={`${hide ? 'app_hide' : ''} app`}>
-      <Navbar hide={hide} setHide={setHide} />
-      <Outlet />
-      <Footer />
-    </div>
+    <CartContext.Provider value={{ cartActive, setCartActive }}>
+      <div className={`${hide ? 'app_hide' : ''} app`}>
+        <Navbar
+          hide={hide}
+          setHide={setHide}
+          setMobileSearch={setMobileSearch}
+          mobileSearch={mobileSearch}
+          cartActive={cartActive}
+          setCartActive={setCartActive}
+        />
+        <Outlet />
+        <Footer />
+      </div>
+    </CartContext.Provider>
   )
 }
 

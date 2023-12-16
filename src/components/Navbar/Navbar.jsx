@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { CiSearch, CiShoppingBasket } from 'react-icons/ci'
 import { IoPersonOutline } from 'react-icons/io5'
@@ -9,16 +9,28 @@ import UseFetch from '../../hooks/busqueda'
 import { useSelector } from 'react-redux'
 import Cart from '../Cart/Cart'
 
-const Navbar = ({ hide, setHide }) => {
+const Navbar = ({
+  hide,
+  setHide,
+  setMobileSearch,
+  mobileSearch,
+  cartActive,
+  setCartActive
+}) => {
   const [searchValue, setSearchValue] = useState('')
   const [isFocused, setIsFocused] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
-  const [mobileSearch, setMobileSearch] = useState(false)
-  const [cartActive, setCartActive] = useState(false)
+
   const navigate = useNavigate()
   const inputRef = useRef()
 
   const products = useSelector(state => state.cart.products)
+
+  useEffect(() => {
+    setMobileSearch(false)
+    setHide(false)
+    setCartActive(false)
+  }, [])
 
   const handleSearchOther = () => {
     if (mobileSearch) {
@@ -43,7 +55,6 @@ const Navbar = ({ hide, setHide }) => {
   const handleKeyDownBtn = () => {
     if (searchValue === '') {
       navigate(`/catalogo/*`)
-      console.log('navegando')
       setHide(false)
       setMobileSearch(false)
       return
@@ -58,7 +69,6 @@ const Navbar = ({ hide, setHide }) => {
     if (e.key === 'Enter') {
       if (searchValue === '') {
         navigate(`/catalogo/*`)
-        console.log('navegando')
         setMobileSearch(false)
         inputRef.current.blur()
         setHide(false)
@@ -117,6 +127,8 @@ const Navbar = ({ hide, setHide }) => {
                 setIsFocused={setIsFocused}
                 isFocused={isFocused}
                 mobile={true}
+                setMobileSearch={setMobileSearch}
+                setHide={setHide}
               />
               {/* {searchValue} */}
             </div>
@@ -170,6 +182,8 @@ const Navbar = ({ hide, setHide }) => {
                 setIsFocused={setIsFocused}
                 isFocused={isFocused}
                 mobile={false}
+                setMobileSearch={setMobileSearch}
+                setHide={setHide}
               />
               {/* {searchValue} */}
             </div>

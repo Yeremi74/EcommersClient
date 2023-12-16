@@ -166,7 +166,7 @@
       /* grid-template-columns: repeat(2, 1fr); */
       padding-bottom: 200px;
       & a {
-        box-shadow: 0px 0px 20px gray;
+        /* box-shadow: 0px 0px 20px gray; */
       }
     }
 

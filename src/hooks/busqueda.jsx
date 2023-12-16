@@ -20,8 +20,6 @@ const UseFetch = busqueda => {
       setLoading(false)
     }
     fetchData()
-    console.log(data)
-    console.log(busqueda)
   }, [busqueda])
 
   return { data, loading, error }

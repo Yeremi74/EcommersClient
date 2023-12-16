@@ -5,12 +5,19 @@ import { Link } from 'react-router-dom'
 import Card from '../card/Card'
 import Loader from '../loader/Loader'
 
-const Search = ({ busqueda, max, setIsFocused, isFocused, mobile }) => {
+const Search = ({
+  busqueda,
+  max,
+  setIsFocused,
+  isFocused,
+  mobile,
+  setMobileSearch,
+  setHide
+}) => {
   // https://real-eyes-strapi.onrender.com/api/products?populate=*&[filters][title][$containsi]=${busqueda}
   const [resultado, setResultado] = useState(false)
 
   const { data, loading, error } = UseFetch(busqueda)
-  // console.log(resultado)
 
   const handleSearchOther = () => {
     if (mobileSearch) {
@@ -31,7 +38,14 @@ const Search = ({ busqueda, max, setIsFocused, isFocused, mobile }) => {
         <Loader />
       ) : data.length >= 1 ? (
         data.slice(0, max).map(item => (
-          <Card item={item} key={item.id} type='link' mobile={mobile} />
+          <Card
+            item={item}
+            key={item.id}
+            type='link'
+            mobile={mobile}
+            setMobileSearch={setMobileSearch}
+            setHide={setHide}
+          />
           // <Link
           //   to={`/product/${item.id}`}
           //   className='result_buscador'
