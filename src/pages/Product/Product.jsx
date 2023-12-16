@@ -4,7 +4,6 @@ import Card from '../../components/card/Card'
 import './product.css'
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../../redux/cartReducer'
-import ReactImageMagnify from 'react-image-magnify'
 
 const Product = () => {
   const id = useParams().id
@@ -98,25 +97,7 @@ const Product = () => {
             />
           )}
         </div>
-        <div className='principal'>
-          {/* {data && <img src={mainImage} />} */}
-          <ReactImageMagnify
-            className='principal_img'
-            {...{
-              smallImage: {
-                alt: 'Wristwatch by Ted Baker London',
-                isFluidWidth: true,
-                src: mainImage
-              },
-              largeImage: {
-                src: mainImage,
-                width: 1200,
-                height: 1800
-              }
-            }}
-            // chao
-          />
-        </div>
+        <div className='principal'>{data && <img src={mainImage} />}</div>
       </div>
       <div className='info'>
         <h2>{data && data?.attributes?.title}</h2>
