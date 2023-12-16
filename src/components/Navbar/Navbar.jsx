@@ -91,7 +91,7 @@ const Navbar = ({ hide, setHide }) => {
       return
     }
     setCartActive(true)
-    setHide(true)
+    // setHide(true)
   }
 
   return (
