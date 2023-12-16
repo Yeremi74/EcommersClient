@@ -134,6 +134,10 @@
       border: none;
       outline: none;
       padding: 10px;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       border-radius: 3px;
       cursor: pointer;
       width: calc(100% - 40px);
