@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { IoClose } from 'react-icons/io5'
 import {
@@ -14,6 +14,9 @@ import { Link } from 'react-router-dom'
 const Cart = ({ cartActive, mobile, setCartActive, setHide }) => {
   const dispatch = useDispatch()
   const products = useSelector(state => state.cart.products)
+  const [pedido, setPedido] = useState(
+    'https://api.whatsapp.com/send?phone=+584243356112'
+  )
 
   const totalPrice = () => {
     let total = 0
@@ -21,6 +24,12 @@ const Cart = ({ cartActive, mobile, setCartActive, setHide }) => {
     return total.toFixed(2)
   }
 
+  const pedidoString = `https://api.whatsapp.com/send?phone=+584243356112&text=Hola Real Eyes!😍, me gustaria *adquirir*🤑 los siguientes productos de su tienda:${products
+    ?.map(
+      item =>
+        `${item.title} con una cantidad de ${item.quantity} en talla: ${item?.sizedCart},`
+    )
+    .join('')} para un total de ${totalPrice()}`
   return (
     <>
       <div className={`cart ${cartActive ? 'show_aside_cart' : ''}`}>
@@ -95,15 +104,18 @@ const Cart = ({ cartActive, mobile, setCartActive, setHide }) => {
             <span>${totalPrice()}</span>
           </div>
           <Link
-            to={'/finalizar_pago'}
+            to={pedido}
             className='checkout'
-            onClick={() => setCartActive(false)}
+            onClick={() => {
+              setCartActive(false)
+              setPedido(pedidoString)
+            }}
           >
             FINALIZAR PEDIDO
           </Link>
-          <span className='reset' onClick={() => dispatch(resetCart())}>
+          {/* <span className='reset' onClick={() => dispatch(resetCart())}>
             Reset Cart
-          </span>
+          </span> */}
         </div>
       </div>
     </>
