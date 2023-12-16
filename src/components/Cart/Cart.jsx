@@ -10,7 +10,7 @@ import {
 import { FaRegTrashAlt } from 'react-icons/fa'
 import './cart.css'
 
-const Cart = ({ cartActive, mobile, setCartActive }) => {
+const Cart = ({ cartActive, mobile, setCartActive, setHide }) => {
   const dispatch = useDispatch()
   const products = useSelector(state => state.cart.products)
 
@@ -24,7 +24,13 @@ const Cart = ({ cartActive, mobile, setCartActive }) => {
     <>
       <div className={`cart ${cartActive ? 'show_aside_cart' : ''}`}>
         <h3>Carrito</h3>
-        <span className='close' onClick={() => setCartActive(false)}>
+        <span
+          className='close'
+          onClick={() => {
+            setCartActive(false)
+            setHide(false)
+          }}
+        >
           <IoClose />
         </span>
         <div className='item_container'>

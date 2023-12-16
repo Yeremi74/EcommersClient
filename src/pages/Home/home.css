@@ -21,6 +21,7 @@
 }
 
 .main {
+  margin-top: 100px;
   height: calc(100vh - 100px);
   width: 100%;
   background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),

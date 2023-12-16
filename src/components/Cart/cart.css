@@ -20,6 +20,7 @@
     right: 20px;
     font-size: 40px;
     font-weight: bolder;
+    cursor: pointer;
   }
 
   .item_container {

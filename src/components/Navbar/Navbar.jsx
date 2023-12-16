@@ -145,7 +145,11 @@ const Navbar = ({ hide, setHide }) => {
           <div className='cartIcon' onClick={handleActiveCart}>
             <CiShoppingBasket />
             <p className='quantity_bg'>{products.length}</p>
-            <Cart cartActive={cartActive} />
+            <Cart
+              cartActive={cartActive}
+              setCartActive={setCartActive}
+              setHide={setHide}
+            />
           </div>
         </div>
       </div>
@@ -213,7 +217,11 @@ const Navbar = ({ hide, setHide }) => {
         </span>
       </div>
       {/* {cartActive && <Cart cartActive={cartActive} />} */}
-      <Cart cartActive={cartActive} setCartActive={setCartActive} />
+      <Cart
+        cartActive={cartActive}
+        setCartActive={setCartActive}
+        setHide={setHide}
+      />
     </div>
   )
 }

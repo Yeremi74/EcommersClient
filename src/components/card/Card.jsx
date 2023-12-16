@@ -16,10 +16,12 @@ const Card = ({ item, type = 'normal', mobile, setMobileSearch, setHide }) => {
                 setHide(false)
               }}
             >
-              {item.attributes.isNew && <div className='isNew'>New Season</div>}
-              <img src={`${item.attributes.img.data.attributes.url}`} />
-              <p className='title'>{item.attributes.title}</p>
-              <p className='price'>${item.attributes.price}</p>
+              {item.attributes?.isNew && (
+                <div className='isNew'>New Season</div>
+              )}
+              <img src={`${item.attributes?.img?.data?.attributes?.url}`} />
+              <p className='title'>{item.attributes?.title}</p>
+              <p className='price'>${item.attributes?.price}</p>
             </Link>
           ) : (
             <Link
@@ -30,18 +32,20 @@ const Card = ({ item, type = 'normal', mobile, setMobileSearch, setHide }) => {
                 setHide(false)
               }}
             >
-              {item.attributes.isNew && <div className='isNew'>New Season</div>}
-              <img src={`${item.attributes.img.data.attributes.url}`} />
-              <p className='title'>{item.attributes.title}</p>
-              <p className='price'>${item.attributes.price}</p>
+              {item.attributes?.isNew && (
+                <div className='isNew'>New Season</div>
+              )}
+              <img src={`${item.attributes?.img?.data?.attributes?.url}`} />
+              <p className='title'>{item.attributes?.title}</p>
+              <p className='price'>${item.attributes?.price}</p>
             </Link>
           )
         ) : (
           <div className='card'>
-            {item.attributes.isNew && <div className='isNew'>New Season</div>}
-            <img src={`${item.attributes.img.data.attributes.url}`} />
-            <p className='title'>{item.attributes.title}</p>
-            <p className='price'>${item.attributes.price}</p>
+            {item.attributes?.isNew && <div className='isNew'>New Season</div>}
+            <img src={`${item.attributes?.img?.data?.attributes?.url}`} />
+            <p className='title'>{item.attributes?.title}</p>
+            <p className='price'>${item.attributes?.price}</p>
           </div>
         )
       ) : (
