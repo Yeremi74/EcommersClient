@@ -92,6 +92,15 @@ const Navbar = ({ hide, setHide }) => {
     setCartActive(true)
   }
 
+  const smallOperation = async () => {
+    const request = await fetch('https://real-eyes-strapi.onrender.com/')
+    console.log(request.status)
+  }
+
+  setInterval(() => {
+    smallOperation()
+  }, 10000)
+
   return (
     <div className='container'>
       <div className='bar'>
