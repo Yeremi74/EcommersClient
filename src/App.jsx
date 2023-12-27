@@ -22,7 +22,6 @@ const Layout = () => {
     <div className={`${hide ? 'app_hide' : ''} app`}>
       <Navbar hide={hide} setHide={setHide} />
       <Outlet />
-      <Footer />
     </div>
   )
 }
