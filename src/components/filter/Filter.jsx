@@ -63,7 +63,7 @@ const Filter = ({
           className={selected == 2 ? `titleCat show` : `titleCat`}
           onClick={() => toggle(2)}
         >
-          <span>Filter by price</span> <IoIosArrowDown />
+          <span>FILTRAR POR PRECIO</span> <IoIosArrowDown />
         </div>
         <div className={selected == 2 ? `content show` : `content`}>
           <div>
@@ -84,7 +84,7 @@ const Filter = ({
           className={selected == 3 ? `titleCat show` : `titleCat`}
           onClick={() => toggle(3)}
         >
-          <span>Sort by</span> <IoIosArrowDown />
+          <span>ORGANIZAR POR</span> <IoIosArrowDown />
         </div>
         <div
           className={`${
@@ -99,7 +99,7 @@ const Filter = ({
               name='price'
               onChange={e => setSort('asc')}
             />
-            <label htmlFor='asc'>Price (Lowest first)</label>
+            <label htmlFor='asc'>Precio (menor primero)</label>
           </div>
           <div>
             <input
@@ -109,7 +109,7 @@ const Filter = ({
               name='price'
               onChange={e => setSort('desc')}
             />
-            <label htmlFor='desc'>Price (Highest first)</label>
+            <label htmlFor='desc'>Precio (alto primero)</label>
           </div>
         </div>
       </div>
