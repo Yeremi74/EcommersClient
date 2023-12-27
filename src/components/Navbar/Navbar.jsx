@@ -92,13 +92,11 @@ const Navbar = ({ hide, setHide }) => {
     setCartActive(true)
   }
 
- 
-
   return (
     <div className='container'>
       <div className='bar'>
         <div className='logo'>
-          <Link to='/'>ZARA</Link>
+          <Link to='/'>REAL EYES</Link>
         </div>
         <div className='search_container'>
           <div className='search'>
