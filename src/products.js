@@ -1,13 +1,19 @@
 import tShirt1 from '../src/public/img/tshirt/tshirt1.jpg'
+import tShirt2 from '../src/public/img/tshirt/tshirt2.jpg'
+import tShirt3 from '../src/public/img/tshirt/tshirt3.jpg'
+import tShirt4 from '../src/public/img/tshirt/tshirt4.jpg'
+import tShirt5 from '../src/public/img/tshirt/tshirt5.jpg'
+
+
 var tShirt = [
     { 
       price: 249.99,
       isNew:true,
       img: tShirt1,
-      img2: '/img/tshirt/tshirt2.jpg',
-      img3: '/img/tshirt/tshirt2.jpg',
-      img4: '/img/tshirt/tshirt2.jpg',
-      img5: '/img/tshirt/tshirt2.jpg',
+      img2: tShirt2,
+      img3: tShirt2,
+      img4: tShirt2,
+      img5: tShirt2,
       title: 'HolaaAAA azul',
       genero: 'hombres',
       type: 'top ventas',
@@ -19,11 +25,11 @@ var tShirt = [
     { 
       price: 329.99,
       isNew:true,
-      img: '/img/tshirt/tshirt2.jpg',
-      img2: '/img/tshirt/tshirt1.jpg',
-      img3: '/img/tshirt/tshirt1.jpg',
-      img4: '/img/tshirt/tshirt1.jpg',
-      img5: '/img/tshirt/tshirt1.jpg',
+      img: tShirt2,
+      img2: tShirt1,
+      img3: tShirt1,
+      img4: tShirt1,
+      img5: tShirt1,
       title: 'Camisa 2 azul',
       genero: 'mujeres',
       type: 'top ventas',
@@ -35,11 +41,11 @@ var tShirt = [
     { 
       price: 100,
       isNew:true,
-      img: '/img/tshirt/tshirt3.jpg',
-      img2: '/img/tshirt/tshirt2.jpg',
-      img3: '/img/tshirt/tshirt2.jpg',
-      img4: '/img/tshirt/tshirt2.jpg',
-      img5: '/img/tshirt/tshirt2.jpg',
+      img: tShirt3,
+      img2: tShirt2,
+      img3: tShirt2,
+      img4: tShirt2,
+      img5: tShirt2,
       title: 'Camisa 3',
       genero: 'hombres',
       type: 'destacados',
@@ -51,11 +57,11 @@ var tShirt = [
     { 
       price: 200,
       isNew:true,
-      img: '/img/tshirt/tshirt4.jpg',
-      img2: '/img/tshirt/tshirt2.jpg',
-      img3: '/img/tshirt/tshirt2.jpg',
-      img4: '/img/tshirt/tshirt2.jpg',
-      img5: '/img/tshirt/tshirt2.jpg',
+      img: tShirt4,
+      img2: tShirt2,
+      img3: tShirt2,
+      img4: tShirt2,
+      img5: tShirt2,
       title: 'Camisa 4',
       genero: 'hombres',
       type: 'top ventas',
@@ -67,11 +73,11 @@ var tShirt = [
     { 
       price: 450,
       isNew:true,
-      img: '/img/tshirt/tshirt5.jpg',
-      img2: '/img/tshirt/tshirt2.jpg',
-      img3: '/img/tshirt/tshirt2.jpg',
-      img4: '/img/tshirt/tshirt2.jpg',
-      img5: '/img/tshirt/tshirt2.jpg',
+      img: tShirt5,
+      img2: tShirt2,
+      img3: tShirt2,
+      img4: tShirt2,
+      img5: tShirt2,
       title: 'Camisa 5',
       genero: 'hombres',
       type: 'destacados',
@@ -82,17 +88,21 @@ var tShirt = [
     },
   ];
 
-
+import pant1 from '../src/public/img/pants/pant1.jpg'
+import pant2 from '../src/public/img/pants/pant2.jpg'
+import pant3 from '../src/public/img/pants/pant3.jpg'
+import pant4 from '../src/public/img/pants/pant4.jpg'
+import pant5 from '../src/public/img/pants/pant5.jpg'
 
 var Pants = [
     { 
       price: 80,
       isNew:true,
-      img: '/img/pants/pant1.jpg',
-      img2: '/img/pants/pant3.jpg',
-      img3: '/img/pants/pant3.jpg',
-      img4: '/img/pants/pant3.jpg',
-      img5: '/img/pants/pant3.jpg',
+      img: pant1,
+      img2: pant3,
+      img3: pant3,
+      img4: pant3,
+      img5: pant3,
       title: 'Pantalon 1 azul',
       genero: 'hombres',
       type: 'top ventas',
@@ -104,11 +114,11 @@ var Pants = [
     { 
       price: 270,
       isNew:true,
-      img: '/img/pants/pant2.jpg',
-      img2: '/img/pants/pant3.jpg',
-      img3: '/img/pants/pant3.jpg',
-      img4: '/img/pants/pant3.jpg',
-      img5: '/img/pants/pant3.jpg',
+      img: pant2,
+      img2: pant3,
+      img3: pant3,
+      img4: pant3,
+      img5: pant3,
       title: 'Pantalon 2 azul',
       genero: 'mujeres',
       type: 'destacados',
@@ -120,11 +130,11 @@ var Pants = [
     { 
       price: 360,
       isNew:true,
-      img: '/img/pants/pant3.jpg',
-      img2: '/img/pants/pant2.jpg',
-      img3: '/img/pants/pant2.jpg',
-      img4: '/img/pants/pant2.jpg',
-      img5: '/img/pants/pant2.jpg',
+      img: pant3,
+      img2: pant2,
+      img3: pant2,
+      img4: pant2,
+      img5: pant2,
       title: 'Pantalon 3',
       genero: 'hombres',
       type: 'top ventas',
@@ -136,11 +146,11 @@ var Pants = [
     { 
       price: 410,
       isNew:true,
-      img: '/img/pants/pant4.jpg',
-      img2: '/img/pants/pant2.jpg',
-      img3: '/img/pants/pant2.jpg',
-      img4: '/img/pants/pant2.jpg',
-      img5: '/img/pants/pant2.jpg',
+      img: pant4,
+      img2: pant2,
+      img3: pant2,
+      img4: pant2,
+      img5: pant2,
       title: 'Pantalon 4',
       genero: 'hombres',
       type: 'destacados',
@@ -152,11 +162,11 @@ var Pants = [
     { 
       price: 380,
       isNew:true,
-      img: '/img/pants/pant5.jpg',
-      img2: '/img/pants/pant2.jpg',
-      img3: '/img/pants/pant2.jpg',
-      img4: '/img/pants/pant2.jpg',
-      img5: '/img/pants/pant2.jpg',
+      img: pant5,
+      img2: pant2,
+      img3: pant2,
+      img4: pant2,
+      img5: pant2,
       title: 'Pantalon 5',
       genero: 'hombres',
       type: 'destacados',
@@ -167,17 +177,22 @@ var Pants = [
     },
   ];
 
+  import accse1 from '../src/public/img/accesories/acc1.jpg'
+  import accse2 from '../src/public/img/accesories/acc2.jpg'
+  import accse3 from '../src/public/img/accesories/acc3.jpg'
+  import accse4 from '../src/public/img/accesories/acc4.jpg'
+  import accse5 from '../src/public/img/accesories/acc5.jpg'
 
 
 var Accesories = [
     { 
       price: 230,
       isNew:true,
-      img: '/img/accesories/acc1.jpg',
-      img2: '/img/accesories/acc2.jpg',
-      img3: '/img/accesories/acc2.jpg',
-      img4: '/img/accesories/acc2.jpg',
-      img5: '/img/accesories/acc2.jpg',
+      img: accse1,
+      img2:accse2,
+      img3:accse2,
+      img4:accse2,
+      img5:accse2,
       title: 'Accesorio 1 azul',
       genero: 'hombres',
       type: 'top ventas',
@@ -189,11 +204,11 @@ var Accesories = [
     { 
       price: 180,
       isNew:true,
-      img: '/img/accesories/acc2.jpg',
-      img2: '/img/accesories/acc3.jpg',
-      img3: '/img/accesories/acc3.jpg',
-      img4: '/img/accesories/acc3.jpg',
-      img5: '/img/accesories/acc3.jpg',
+      img:accse2,
+      img2: accse3,
+      img3: accse3,
+      img4: accse3,
+      img5: accse3,
       title: 'Accesorio 2',
       genero: 'mujeres',
       type: 'destacados',
@@ -205,11 +220,11 @@ var Accesories = [
     { 
       price: 470,
       isNew:true,
-      img: '/img/accesories/acc3.jpg',
-      img2: '/img/accesories/acc2.jpg',
-      img3: '/img/accesories/acc2.jpg',
-      img4: '/img/accesories/acc2.jpg',
-      img5: '/img/accesories/acc2.jpg',
+      img: accse3,
+      img2:accse2,
+      img3:accse2,
+      img4:accse2,
+      img5:accse2,
       title: 'Accesorio 3 azul',
       genero: 'mujeres',
       type: 'top ventas',
@@ -221,11 +236,11 @@ var Accesories = [
     { 
       price: 99,
       isNew:true,
-      img: '/img/accesories/acc4.jpg',
-      img2: '/img/accesories/acc2.jpg',
-      img3: '/img/accesories/acc2.jpg',
-      img4: '/img/accesories/acc2.jpg',
-      img5: '/img/accesories/acc2.jpg',
+      img: accse4,
+      img2:accse2,
+      img3:accse2,
+      img4:accse2,
+      img5:accse2,
       title: 'Accesorio 4',
       genero: 'hombres',
       type: 'top ventas',
@@ -237,11 +252,11 @@ var Accesories = [
     { 
       price: 39.99,
       isNew:true,
-      img: '/img/accesories/acc5.jpg',
-      img2: '/img/accesories/acc2.jpg',
-      img3: '/img/accesories/acc2.jpg',
-      img4: '/img/accesories/acc2.jpg',
-      img5: '/img/accesories/acc2.jpg',
+      img: accse5,
+      img2:accse2,
+      img3:accse2,
+      img4:accse2,
+      img5:accse2,
       title: 'Accesorio 5',
       genero: 'hombres',
       type: 'top ventas',
@@ -252,16 +267,22 @@ var Accesories = [
     },
   ];
 
+  import hoodie1 from '../src/public/img/hoodie/hoodi1.jpg'
+  import hoodie2 from '../src/public/img/hoodie/hoodie2.jpg'
+  import hoodie3 from '../src/public/img/hoodie/hoodie3.jpg'
+  import hoodie4 from '../src/public/img/hoodie/hoodie4.jpg'
+  import hoodie4 from '../src/public/img/hoodie/hoodie5.jpg'
+
 
 var hoodies = [
     { 
       price: 500,
       isNew:true,
-      img: '/img/hoodie/hoodie1.jpg',
-      img2: '/img/hoodie/hoodie2.jpg',
-      img3: '/img/hoodie/hoodie2.jpg',
-      img4: '/img/hoodie/hoodie2.jpg',
-      img5: '/img/hoodie/hoodie2.jpg',
+      img: hoodie1,
+      img2: hoodie2,
+      img3: hoodie2,
+      img4: hoodie2,
+      img5: hoodie2,
       title: 'Hoodie 1 azul',
       genero: 'hombres',
       type: 'top ventas',
@@ -273,11 +294,11 @@ var hoodies = [
     { 
       price: 380,
       isNew:true,
-      img: '/img/hoodie/hoodie2.jpg',
-      img2: '/img/hoodie/hoodie1.jpg',
-      img3: '/img/hoodie/hoodie1.jpg',
-      img4: '/img/hoodie/hoodie1.jpg',
-      img5: '/img/hoodie/hoodie1.jpg',
+      img: hoodie2,
+      img2: hoodie1,
+      img3: hoodie1,
+      img4: hoodie1,
+      img5: hoodie1,
       title: 'Hoodie 2',
       genero: 'mujeres',
       type: 'top ventas',
@@ -289,11 +310,11 @@ var hoodies = [
     { 
       price: 260,
       isNew:true,
-      img: '/img/hoodie/hoodie3.jpg',
-      img2: '/img/hoodie/hoodie2.jpg',
-      img3: '/img/hoodie/hoodie2.jpg',
-      img4: '/img/hoodie/hoodie2.jpg',
-      img5: '/img/hoodie/hoodie2.jpg',
+      img: hoodie3,
+      img2: hoodie2,
+      img3: hoodie2,
+      img4: hoodie2,
+      img5: hoodie2,
       title: 'Hoodie 3',
       genero: 'hombres',
       type: 'top ventas',
@@ -305,11 +326,11 @@ var hoodies = [
     { 
       price: 189,
       isNew:true,
-      img: '/img/hoodie/hoodie4.jpg',
-      img2: '/img/hoodie/hoodie2.jpg',
-      img3: '/img/hoodie/hoodie2.jpg',
-      img4: '/img/hoodie/hoodie2.jpg',
-      img5: '/img/hoodie/hoodie2.jpg',
+      img: hoodie4,
+      img2: hoodie2,
+      img3: hoodie2,
+      img4: hoodie2,
+      img5: hoodie2,
       title: 'Hoodie 4',
       genero: 'hombres',
       type: 'top ventas',
@@ -321,11 +342,11 @@ var hoodies = [
     { 
       price: 375,
       isNew:true,
-      img: '/img/hoodie/hoodie5.jpg',
-      img2: '/img/hoodie/hoodie2.jpg',
-      img3: '/img/hoodie/hoodie2.jpg',
-      img4: '/img/hoodie/hoodie2.jpg',
-      img5: '/img/hoodie/hoodie2.jpg',
+      img: hoodie5,
+      img2: hoodie2,
+      img3: hoodie2,
+      img4: hoodie2,
+      img5: hoodie2,
       title: 'Hoodie 5',
       genero: 'hombres',
       type: 'top ventas',
