@@ -1,8 +1,9 @@
+import tShirt1 from '../src/public/img/tshirt/tshirt1.jpg'
 var tShirt = [
     { 
       price: 249.99,
       isNew:true,
-      img: '/img/tshirt/tshirt1.jpg',
+      img: tShirt1,
       img2: '/img/tshirt/tshirt2.jpg',
       img3: '/img/tshirt/tshirt2.jpg',
       img4: '/img/tshirt/tshirt2.jpg',
