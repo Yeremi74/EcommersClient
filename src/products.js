@@ -271,7 +271,7 @@ var Accesories = [
   import hoodie2 from '../src/public/img/hoodie/hoodie2.jpg'
   import hoodie3 from '../src/public/img/hoodie/hoodie3.jpg'
   import hoodie4 from '../src/public/img/hoodie/hoodie4.jpg'
-  import hoodie4 from '../src/public/img/hoodie/hoodie5.jpg'
+  import hoodie5 from '../src/public/img/hoodie/hoodie5.jpg'
 
 
 var hoodies = [
