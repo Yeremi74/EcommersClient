@@ -121,7 +121,7 @@ const Product = () => {
           Añadir al carrito
         </button>
 
-        <p className='desc'>{data && data?.desc}</p>
+        <p className='desc'>Description {data?.title}</p>
         <div className='sizes'>
           <span>TALLAS:</span>
           <div className='size'>
