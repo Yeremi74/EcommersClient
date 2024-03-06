@@ -96,7 +96,11 @@ const Navbar = ({ hide, setHide }) => {
     <div className='container'>
       <div className='bar'>
         <div className='logo'>
-          <Link to='/'>REAL EYES</Link>
+          <Link to='/' onClick={() => {
+            setMobileSearch(setMobileSearch)
+            setHide(setHide)
+            setSearchValue('')
+          }}>REAL EYES</Link>
         </div>
         <div className='search_container'>
           <div className='search'>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './filter.css'
 import { IoIosMenu, IoIosArrowDown } from 'react-icons/io'
 
@@ -13,6 +13,8 @@ const Filter = ({
 }) => {
   const [selected, setSelected] = useState(null)
   //   const [selected, setSelected] = useState(null)
+  const [isFirstCall, setIsFirstCall] = useState(true);
+  
 
   const toggle = i => {
     if (selected === i) {
@@ -21,17 +23,25 @@ const Filter = ({
 
     setSelected(i)
   }
-
+  
+  
   const handleChange = e => {
-    const value = e.target.value
-    const isChecked = e.target.checked
-
-    setSelectedSubCats(
-      isChecked
-        ? [...selectedSubCats, value]
-        : selectedSubCats.filter(item => item !== value)
-    )
-  }
+    const value = e.target.value;
+    const isChecked = e.target.checked;
+  
+    if (isFirstCall) {
+      setSelectedSubCats([value]);
+      setIsFirstCall(false);
+    } else {
+      setSelectedSubCats(prevSelectedSubCats => {
+        if (isChecked) {
+          return [...prevSelectedSubCats, value];
+        } else {
+          return prevSelectedSubCats.filter(item => item !== value);
+        }
+      });
+    }
+  };
 
   return (
     <div className={`${activeBar ? 'aside_bar_active' : ''} aside_bar`}>
@@ -43,9 +53,44 @@ const Filter = ({
           <span>TIPO DE ROPA</span> <IoIosArrowDown />
         </div>
         <div className={selected == 1 ? `content show` : `content`}>
-          {products &&
-            products.map(item => (
-              <div key={item.id} className='typeoff'>
+        
+              <div  className='typeoff'>
+                <label htmlFor='0'>T-Shirt</label>
+                <input
+                  type='checkbox'
+                  id='0'
+                  value={0}
+                  onChange={handleChange}
+                />
+              </div>
+              <div  className='typeoff'>
+                <label htmlFor='2'>Hoodies</label>
+                <input
+                  type='checkbox'
+                  id='2'
+                  value={2}
+                  onChange={handleChange}
+                />
+              </div>
+              <div  className='typeoff'>
+                <label htmlFor='3'>Accessories</label>
+                <input
+                  type='checkbox'
+                  id='3'
+                  value={3}
+                  onChange={handleChange}
+                />
+              </div>
+              <div  className='typeoff'>
+                <label htmlFor='1'>Pants</label>
+                <input
+                  type='checkbox'
+                  id='1'
+                  value={1}
+                  onChange={handleChange}
+                />
+              </div>
+              {/* <div key={item.id} className='typeoff'>
                 <label htmlFor={item.id}>{item.attributes.title}</label>
                 <input
                   type='checkbox'
@@ -53,8 +98,7 @@ const Filter = ({
                   value={item.id}
                   onChange={handleChange}
                 />
-              </div>
-            ))}
+              </div> */}
         </div>
       </div>
 
@@ -79,7 +123,7 @@ const Filter = ({
         </div>
       </div>
 
-      <div className='filterItem'>
+      {/* <div className='filterItem'>
         <div
           className={selected == 3 ? `titleCat show` : `titleCat`}
           onClick={() => toggle(3)}
@@ -112,7 +156,7 @@ const Filter = ({
             <label htmlFor='desc'>Precio (alto primero)</label>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }

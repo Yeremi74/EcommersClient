@@ -8,27 +8,16 @@ const AllProducts = ({
   catId = 0,
   url = null,
   urlShowProduct,
+  sex,
   producto = ''
 }) => {
   const [maxPrice, setMaxPrice] = useState(500)
   const [sort, setSort] = useState('desc')
-  const [selectedSubCats, setSelectedSubCats] = useState([])
+  const [selectedSubCats, setSelectedSubCats] = useState(['0','1','2','3'])
   const [products, setProducts] = useState([])
   const [activeBar, setActiveBar] = useState(false)
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch(url)
-        const data = await res.json()
-        setProducts(data.data)
-      } catch (err) {
-        console.log(err)
-      }
-    }
 
-    fetchData()
-  }, [])
 
   const handleAsideBar = () => {
     if (activeBar) {
@@ -69,6 +58,7 @@ const AllProducts = ({
           subCats={selectedSubCats}
           urlShowProduct={urlShowProduct}
           producto={producto}
+          sex={sex}
         />
       </div>
     </div>

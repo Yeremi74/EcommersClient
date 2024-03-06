@@ -1,95 +1,76 @@
-import React, { useEffect, useState } from 'react'
-import Card from '../card/Card'
-import './catShowProducts.css'
-import Loader from '../loader/Loader'
+import React, { useEffect, useState } from 'react';
+import Card from '../card/Card';
+import './catShowProducts.css';
+import Loader from '../loader/Loader';
+import { tShirt, hoodies, Accesories, Pants } from '../../products';
+
 const CatShowProducts = ({
   subCats,
   maxPrice,
   sort,
   catId,
   urlShowProduct,
-  producto = ''
+  producto = '',
+  sex
 }) => {
-  const [products, setProducts] = useState([])
-  const [loading, setLoading] = useState(false)
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let load = await setLoading(true)
+        setLoading(true);
         if (urlShowProduct === 'gender') {
-          const res = await fetch(
-            `https://real-eyes-strapi.onrender.com/api/products?populate=*&[filters][categories][id]=${catId}${subCats
-              .map(item => `&[filters][sub_categories][id][$eq]=${item}`)
-              .join(
-                ''
-              )}&[filters][price][$lte]=${maxPrice}&sort=price:${sort}&pagination[page]=1&pagination[pageSize]=100`
-          )
-          load = await setLoading(false)
-
-          const data = await res.json()
-          setProducts(data.data)
-          return
+          const combinedArray = [...tShirt, ...hoodies, ...Accesories, ...Pants];
+          const objetoEncontrado = combinedArray.filter(objeto => objeto.genero === sex && objeto.price <= maxPrice && subCats.includes(objeto.catType));
+          setProducts(objetoEncontrado);
+          
+          
         }
 
         if (producto === '*') {
-          const res = await fetch(
-            `https://real-eyes-strapi.onrender.com/api/products?populate=*&[filters][title][$containsi]=${subCats
-              .map(item => `&[filters][sub_categories][id][$eq]=${item}`)
-              .join(
-                ''
-              )}&[filters][price][$lte]=${maxPrice}&sort=price:${sort}&pagination[page]=1&pagination[pageSize]=100`
-          )
-          load = await setLoading(false)
+          const combinedArray = [...tShirt, ...hoodies, ...Accesories, ...Pants];
+          const productosFiltrados = combinedArray.filter(objeto => objeto.price <= maxPrice && subCats.includes(objeto.catType));
+          setProducts(productosFiltrados);
+     }
 
-          const data = await res.json()
-          setProducts(data.data)
-          return
-        }
+     if(producto !== '*' && producto !== ''){
+      const combinedArray = [...tShirt, ...hoodies, ...Accesories, ...Pants];
+      const productosFiltrados = combinedArray.filter(objeto => objeto.title.toLowerCase().includes(producto.toLowerCase()) && objeto.price <= maxPrice && subCats.includes(objeto.catType));
+      setProducts(productosFiltrados);
+ }
+// if(producto !== '*' && producto !== '') {
 
-        const res = await fetch(
-          `https://real-eyes-strapi.onrender.com/api/products?populate=*&[filters][title][$containsi]=${producto}${subCats
-            .map(item => `&[filters][sub_categories][id][$eq]=${item}`)
-            .join(
-              ''
-            )}&[filters][price][$lte]=${maxPrice}&sort=price:${sort}&pagination[page]=1&pagination[pageSize]=100`
-        )
-        load = await setLoading(false)
-
-        const data = await res.json()
-        setProducts(data.data)
+        setLoading(false);
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
-    }
+    };
 
-    fetchData()
-  }, [subCats, sort, maxPrice, producto])
+    fetchData();
+  }, [subCats, sort, maxPrice, producto, urlShowProduct, sex]);
 
   return (
     <div className='container'>
       {loading ? (
         <Loader />
-      ) : products.length == 0 ? (
+      ) : products.length === 0 ? (
         <div>NO HAY RESULTADOS, INTENTA CAMBIAR LOS FILTROS</div>
       ) : (
         <div>
-          {/* {products.length} */}
           <br />
-          {/* {`https://real-eyes-strapi.onrender.com/api/products?populate=*&[filters][title][$containsi]=${producto}${subCats
-            .map(item => `&[filters][sub_categories][id][$eq]=${item}`)
-            .join(
-              ''
-            )}&[filters][price][$lte]=${maxPrice}&sort=price:${sort}&pagination[page]=1&pagination[pageSize]=100`} */}
           <div className='product_card_container'>
             {products.map(item => (
-              <Card item={item} key={item.id} type='link' />
+              <>
+              
+              <Card item={item} type='link' key={item.id} />
+              </>
             ))}
           </div>
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default CatShowProducts
+export default CatShowProducts;

@@ -4,10 +4,11 @@ import Card from '../../components/card/Card'
 import './product.css'
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../../redux/cartReducer'
+import {tShirt, hoodies, Accesories, Pants,} from '../../products'
 
 const Product = () => {
   const id = useParams().id
-  const [data, setData] = useState()
+  const [data, setData] = useState([])
   const [selectedImg, setSelectedImg] = useState(0)
   let [quantity, setQuantity] = useState(1)
   let [sizedCart, setSizedCart] = useState('')
@@ -17,21 +18,17 @@ const Product = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch(
-          `https://real-eyes-strapi.onrender.com/api/products/${id}?populate=*`
-        )
-        const data = await res.json()
-        setData(data.data)
-        setMainImage(data.data.attributes.img.data.attributes.url)
-      } catch (err) {
-        console.log(err)
-      }
-    }
+    const combinedArray = [...tShirt, ...hoodies, ...Accesories, ...Pants];
+    const idNumber = Number(id)
+    
+    const encontrarObjetoPorId = (id) => {
+      return combinedArray.find(objeto => objeto.id === id);
+    };
 
-    fetchData()
-  }, [id])
+    const objetoEncontrado = encontrarObjetoPorId( idNumber);
+    setData(objetoEncontrado)
+    setMainImage(data?.img)
+  }, [id,data])
 
   const handleSize = i => {
     if (sizeSelected === i) {
@@ -46,46 +43,46 @@ const Product = () => {
         <div className='column'>
           {data && (
             <img
-              src={`${data?.attributes?.img?.data?.attributes?.url}`}
+              src={`${data?.img}`}
               className='square'
               onClick={() =>
-                setMainImage(data?.attributes?.img?.data?.attributes?.url)
+                setMainImage(data?.img)
               }
             />
           )}
           {data && (
             <img
-              src={`${data?.attributes?.img2?.data?.attributes?.url}`}
+              src={`${data?.img2}`}
               className='square'
               onClick={() =>
-                setMainImage(data?.attributes?.img2?.data?.attributes?.url)
+                setMainImage(data?.img2)
               }
             />
           )}
           {data && (
             <img
-              src={`${data?.attributes?.img3?.data?.attributes?.url}`}
+              src={`${data?.img3}`}
               className='square'
               onClick={() =>
-                setMainImage(data?.attributes?.img3?.data?.attributes?.url)
+                setMainImage(data?.img3)
               }
             />
           )}
           {data && (
             <img
-              src={`${data?.attributes?.img4?.data?.attributes?.url}`}
+              src={`${data?.img4}`}
               className='square'
               onClick={() =>
-                setMainImage(data?.attributes?.img4?.data?.attributes?.url)
+                setMainImage(data?.img4)
               }
             />
           )}
           {data && (
             <img
-              src={`${data?.attributes?.img5?.data?.attributes?.url}`}
+              src={`${data?.img5}`}
               className='square'
               onClick={() =>
-                setMainImage(data?.attributes?.img5?.data?.attributes?.url)
+                setMainImage(data?.img5)
               }
             />
           )}
@@ -93,8 +90,8 @@ const Product = () => {
         <div className='principal'>{data && <img src={mainImage} />}</div>
       </div>
       <div className='info'>
-        <h2>{data && data?.attributes?.title}</h2>
-        <p className='price'>${data && data?.attributes?.price}</p>
+        <h2>{data && data?.title}</h2>
+        <p className='price'>${data && data?.price}</p>
 
         <div className='quantity'>
           <button
@@ -111,10 +108,10 @@ const Product = () => {
             dispatch(
               addToCart({
                 id: data.id,
-                title: data.attributes.title,
-                desc: data.attributes.desc,
-                price: data.attributes.price,
-                img: data.attributes.img.data.attributes.url,
+                title: data.title,
+                desc: data.desc,
+                price: data.price,
+                img: data.img,
                 quantity,
                 sizedCart
               })
@@ -124,21 +121,21 @@ const Product = () => {
           Añadir al carrito
         </button>
 
-        <p className='desc'>{data && data?.attributes?.desc}</p>
+        <p className='desc'>{data && data?.desc}</p>
         <div className='sizes'>
           <span>TALLAS:</span>
           <div className='size'>
             {data &&
-              data?.attributes?.sizes?.data.map((size, i) => (
+              data?.size?.map((size, i) => (
                 <div
-                  key={size.attributes.title}
+                  key={size}
                   onClick={() => {
                     handleSize(i)
-                    setSizedCart(size.attributes.title)
+                    setSizedCart(size)
                   }}
                   className={`${sizeSelected == i ? 'size_active' : ''} number`}
                 >
-                  <span>{size.attributes.title}</span>
+                  <span>{size.toUpperCase()}</span>
                 </div>
               ))}
           </div>

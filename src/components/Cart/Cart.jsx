@@ -11,7 +11,10 @@ import { FaRegTrashAlt } from 'react-icons/fa'
 import './cart.css'
 import { Link } from 'react-router-dom'
 
+
+
 const Cart = ({ cartActive, mobile, setCartActive, setHide }) => {
+  
   const dispatch = useDispatch()
   const products = useSelector(state => state.cart.products)
   const [pedido, setPedido] = useState(

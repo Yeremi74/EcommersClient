@@ -4,6 +4,7 @@ import UseFetch from '../../hooks/busqueda'
 import { Link } from 'react-router-dom'
 import Card from '../card/Card'
 import Loader from '../loader/Loader'
+import {tShirt, hoodies, Accesories, Pants} from '../../products'
 
 const Search = ({
   busqueda,
@@ -15,29 +16,31 @@ const Search = ({
   setHide
 }) => {
   // https://real-eyes-strapi.onrender.com/api/products?populate=*&[filters][title][$containsi]=${busqueda}
-  const [resultado, setResultado] = useState(false)
+  const [products, setProducts] = useState(false)
 
-  const { data, loading, error } = UseFetch(busqueda)
+  useEffect(() => {
+    const combineArrays = () => {
+      const combinedArray = [...tShirt, ...hoodies, ...Accesories, ...Pants];
+      // const shuffledArray = combinedArray.sort(() => Math.random() - 0.5);
+      const objetoEncontrado = combinedArray.filter(objeto => objeto.title.toLowerCase().includes(busqueda.toLowerCase()));
+      setProducts(objetoEncontrado);
 
-  const handleSearchOther = () => {
-    if (mobileSearch) {
-      setMobileSearch(false)
+      
+    };
 
-      return
-    }
-  }
+    combineArrays();
+  }, [busqueda]);
+  
 
   return (
     <div
       className={`containerSearchSearch ${
         mobile == true ? 'container_desk' : 'container_mobile'
       }
-      ${loading ? 'loading_data' : ''}`}
+      `}
     >
-      {loading ? (
-        <Loader />
-      ) : data.length >= 1 ? (
-        data.slice(0, max).map(item => (
+      {products.length >= 1 && (
+        products.slice(0, max).map(item => (
           <Card
             item={item}
             key={item.id}
@@ -46,22 +49,9 @@ const Search = ({
             setMobileSearch={setMobileSearch}
             setHide={setHide}
           />
-          // <Link
-          //   to={`/product/${item.id}`}
-          //   className='result_buscador'
-          //   onClick={handleSearchOther}
-          //   key={item.id}
-          // >
-          //   <img src={`${item.attributes.img.data.attributes.url}`} alt='' />
-          //   <div>
-          //     <p>{item.attributes.title}</p>
-          //     <p>${item.attributes.price}</p>
-          //   </div>
-          // </Link>
+   
         ))
-      ) : (
-        <span className='span'>no hay resultados</span>
-      )}
+     )}
     </div>
   )
 }

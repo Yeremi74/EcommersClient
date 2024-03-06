@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import './card.css'
 
 const Card = ({ item, type = 'normal', mobile, setMobileSearch, setHide }) => {
+  
   return (
     <div className='card_c'>
       {item ? (
@@ -16,36 +17,36 @@ const Card = ({ item, type = 'normal', mobile, setMobileSearch, setHide }) => {
                 setHide(false)
               }}
             >
-              {item.attributes?.isNew && (
+              {item.isNew && (
                 <div className='isNew'>New Season</div>
               )}
-              <img src={`${item.attributes?.img?.data?.attributes?.url}`} />
-              <p className='title'>{item.attributes?.title}</p>
-              <p className='price'>${item.attributes?.price}</p>
+              <img src={`http://localhost:5173${item?.img}`} />
+              <p className='title'>{item?.title}</p>
+              <p className='price'>${item?.price}</p>
             </Link>
           ) : (
             <Link
-              to={`/product/${item.id}`}
+              to={`/product/${item?.id}`}
               className='card link'
               onClick={() => {
                 setMobileSearch(false)
                 setHide(false)
               }}
             >
-              {item.attributes?.isNew && (
+              {item?.isNew && (
                 <div className='isNew'>New Season</div>
               )}
-              <img src={`${item.attributes?.img?.data?.attributes?.url}`} />
-              <p className='title'>{item.attributes?.title}</p>
-              <p className='price'>${item.attributes?.price}</p>
+              <img src={`http://localhost:5173${item?.img}`} />
+              <p className='title'>{item?.title}</p>
+              <p className='price'>${item?.price}</p>
             </Link>
           )
         ) : (
           <div className='card'>
-            {item.attributes?.isNew && <div className='isNew'>New Season</div>}
-            <img src={`${item.attributes?.img?.data?.attributes?.url}`} />
-            <p className='title'>{item.attributes?.title}</p>
-            <p className='price'>${item.attributes?.price}</p>
+            {item?.isNew && <div className='isNew'>New Season</div>}
+            <img src={`http://localhost:5173${item?.img}`} />
+            <p className='title'>{item?.title}</p>
+            <p className='price'>${item?.price}</p>
           </div>
         )
       ) : (
