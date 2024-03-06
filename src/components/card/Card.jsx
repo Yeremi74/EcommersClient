@@ -20,7 +20,7 @@ const Card = ({ item, type = 'normal', mobile, setMobileSearch, setHide }) => {
               {item.isNew && (
                 <div className='isNew'>New Season</div>
               )}
-              <img src={`https://real-eyes-ecommerces.netlify.app/${item?.img}`} />
+              <img src={`https://real-eyes-ecommerces.netlify.app${item?.img}`} />
               <p className='title'>{item?.title}</p>
               <p className='price'>${item?.price}</p>
             </Link>
@@ -36,7 +36,7 @@ const Card = ({ item, type = 'normal', mobile, setMobileSearch, setHide }) => {
               {item?.isNew && (
                 <div className='isNew'>New Season</div>
               )}
-              <img src={`https://real-eyes-ecommerces.netlify.app/${item?.img}`} />
+              <img src={`https://real-eyes-ecommerces.netlify.app${item?.img}`} />
               <p className='title'>{item?.title}</p>
               <p className='price'>${item?.price}</p>
             </Link>
@@ -44,7 +44,7 @@ const Card = ({ item, type = 'normal', mobile, setMobileSearch, setHide }) => {
         ) : (
           <div className='card'>
             {item?.isNew && <div className='isNew'>New Season</div>}
-            <img src={`https://real-eyes-ecommerces.netlify.app/${item?.img}`} />
+            <img src={`https://real-eyes-ecommerces.netlify.app${item?.img}`} />
             <p className='title'>{item?.title}</p>
             <p className='price'>${item?.price}</p>
           </div>
