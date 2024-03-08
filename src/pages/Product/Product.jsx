@@ -5,6 +5,8 @@ import './product.css'
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../../redux/cartReducer'
 import {tShirt, hoodies, Accesories, Pants,} from '../../products'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Product = () => {
   const id = useParams().id
@@ -14,6 +16,18 @@ const Product = () => {
   let [sizedCart, setSizedCart] = useState('')
   const [sizeSelected, setsizeSelected] = useState(-1)
   const [mainImage, setMainImage] = useState(null)
+
+  const notify = () => toast.success('El producto fue añadido al carrito!', {
+    position: "bottom-right",
+    autoClose: 1000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    
+    });
 
   const dispatch = useDispatch()
 
@@ -105,7 +119,7 @@ const Product = () => {
 
         <button
           onClick={() =>
-            dispatch(
+            {dispatch(
               addToCart({
                 id: data.id,
                 title: data.title,
@@ -115,12 +129,24 @@ const Product = () => {
                 quantity,
                 sizedCart
               })
-            )
+            ); notify()}
           }
         >
           Añadir al carrito
         </button>
-
+        <ToastContainer
+position="bottom-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+transition: Bounce
+/>
         <p className='desc'>Description {data?.title}</p>
         <div className='sizes'>
           <span>TALLAS:</span>

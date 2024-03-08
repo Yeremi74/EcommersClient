@@ -13,7 +13,8 @@ const AllProducts = ({
 }) => {
   const [maxPrice, setMaxPrice] = useState(500)
   const [sort, setSort] = useState('desc')
-  const [selectedSubCats, setSelectedSubCats] = useState(['0','1','2','3'])
+  const [selectedSubCats, setSelectedSubCats] = useState([])
+  // ['0','1','2','3']
   const [products, setProducts] = useState([])
   const [activeBar, setActiveBar] = useState(false)
 

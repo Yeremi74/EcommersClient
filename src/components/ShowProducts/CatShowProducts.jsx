@@ -61,10 +61,9 @@ const CatShowProducts = ({
           <br />
           <div className='product_card_container'>
             {products.map(item => (
-              <>
               
-              <Card item={item} type='link' key={item.id} />
-              </>
+              <Card item={item} type='link' key={item.title} />
+              
             ))}
           </div>
         </div>

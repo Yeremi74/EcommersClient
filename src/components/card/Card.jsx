@@ -20,6 +20,7 @@ const Card = ({ item, type = 'normal', mobile, setMobileSearch, setHide }) => {
               {item.isNew && (
                 <div className='isNew'>New Season</div>
               )}
+              {/* https://real-eyes-ecommerces.netlify.app */}
               <img src={`https://real-eyes-ecommerces.netlify.app${item?.img}`} />
               <p className='title'>{item?.title}</p>
               <p className='price'>${item?.price}</p>

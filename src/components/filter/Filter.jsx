@@ -13,35 +13,38 @@ const Filter = ({
 }) => {
   const [selected, setSelected] = useState(null)
   //   const [selected, setSelected] = useState(null)
-  const [isFirstCall, setIsFirstCall] = useState(true);
-  
-
   const toggle = i => {
     if (selected === i) {
-      return setSelected(null)
+      return setSelected(null);
     }
-
-    setSelected(i)
-  }
   
+    setSelected(i);
+  };
   
   const handleChange = e => {
     const value = e.target.value;
     const isChecked = e.target.checked;
   
-    if (isFirstCall) {
-      setSelectedSubCats([value]);
-      setIsFirstCall(false);
-    } else {
+    if (isChecked) {
       setSelectedSubCats(prevSelectedSubCats => {
-        if (isChecked) {
-          return [...prevSelectedSubCats, value];
+        if (prevSelectedSubCats.includes(value)) {
+          return prevSelectedSubCats.filter(item => item == value); // El número ya existe, eliminarlo del arreglo
         } else {
-          return prevSelectedSubCats.filter(item => item !== value);
+          return [...prevSelectedSubCats, value]; // Agregar el número al arreglo
         }
       });
+    } else {
+      setSelectedSubCats(prevSelectedSubCats => prevSelectedSubCats.filter(item => item !== value));
     }
   };
+  useEffect(() => {
+    if(selectedSubCats.length === 0) {
+      setSelectedSubCats(['0','1','2','3'])
+    }
+    console.log(selectedSubCats);
+    console.log(selectedSubCats.length);
+  }, [selectedSubCats])
+  
 
   return (
     <div className={`${activeBar ? 'aside_bar_active' : ''} aside_bar`}>
